@@ -161,9 +161,139 @@
                   resize: true
             });
         }
+        if ($('#HTML').length) {
+            Morris.Donut({
+                element: 'HTML',
+                data: [
+                    { value: 80, label: 'HTML' },
+                    { value: 20, label: 'NOT' }
+                ],
+             
+                labelColor: '#2e2f39',
+                   gridTextSize: '14px',
+                colors: [
+                        "#ea6228",
+                        "#d9d9d9"                 
+                ],
 
+                formatter: function(x) { return x + "%" },
+                  resize: true
+            });
+        }
+        if ($('#CSS').length) {
+            Morris.Donut({
+                element: 'CSS',
+                data: [
+                    { value: 80, label: 'CSS' },
+                    { value: 20, label: 'NOT' }
+                ],
+             
+                labelColor: '#2e2f39',
+                   gridTextSize: '14px',
+                colors: [
+                        "#2aa3d9",
+                        "#d9d9d9"                 
+                ],
 
+                formatter: function(x) { return x + "%" },
+                  resize: true
+            });
+        }
+        if ($('#boot').length) {
+            Morris.Donut({
+                element: 'boot',
+                data: [
+                    { value: 80, label: 'Bootstrap' },
+                    { value: 20, label: 'NOT' }
+                ],
+             
+                labelColor: '#2e2f39',
+                   gridTextSize: '14px',
+                colors: [
+                        "#2aa3d9",
+                        "#d9d9d9"                 
+                ],
 
+                formatter: function(x) { return x + "%" },
+                  resize: true
+            });
+        }
+        if ($('#PHP').length) {
+            Morris.Donut({
+                element: 'PHP',
+                data: [
+                    { value: 80, label: 'PHP' },
+                    { value: 20, label: 'NOT' }
+                ],
+             
+                labelColor: '#2e2f39',
+                   gridTextSize: '14px',
+                colors: [
+                        "#697ab1",
+                        "#d9d9d9"                 
+                ],
+
+                formatter: function(x) { return x + "%" },
+                  resize: true
+            });
+        }
+        if ($('#IONIC').length) {
+            Morris.Donut({
+                element: 'IONIC',
+                data: [
+                    { value: 60, label: 'IONIC' },
+                    { value: 40, label: 'NOT' }
+                ],
+             
+                labelColor: '#2e2f39',
+                   gridTextSize: '14px',
+                colors: [
+                        "#4c8af0",
+                        "#d9d9d9"                 
+                ],
+
+                formatter: function(x) { return x + "%" },
+                  resize: true
+            });
+        }
+        if ($('#MVC').length) {
+            Morris.Donut({
+                element: 'MVC',
+                data: [
+                    { value: 50, label: 'ASP.NET MVC' },
+                    { value: 50, label: 'NOT' }
+                ],
+             
+                labelColor: '#2e2f39',
+                   gridTextSize: '14px',
+                colors: [
+                        "#1871b2",
+                        "#d9d9d9"                 
+                ],
+
+                formatter: function(x) { return x + "%" },
+                  resize: true
+            });
+        }
+        if ($('#ANDROID').length) {
+            Morris.Donut({
+                element: 'ANDROID',
+                data: [
+                    { value: 50, label: 'ANDROID STUDIO' },
+                    { value: 50, label: 'NOT' }
+                ],
+             
+                labelColor: '#2e2f39',
+                   gridTextSize: '14px',
+                colors: [
+                        "#8dbf53",
+                        "#d9d9d9"                 
+                ],
+
+                formatter: function(x) { return x + "%" },
+                  resize: true
+            });
+        }
 
 
 
