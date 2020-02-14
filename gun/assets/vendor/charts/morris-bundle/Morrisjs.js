@@ -165,8 +165,8 @@
             Morris.Donut({
                 element: 'HTML',
                 data: [
-                    { value: 80, label: 'HTML' },
-                    { value: 20, label: 'NOT' }
+                    { value: 90, label: 'HTML' },
+                    { value: 10, label: 'NOT' }
                 ],
              
                 labelColor: '#2e2f39',
@@ -180,12 +180,31 @@
                   resize: true
             });
         }
+        if ($('#MY').length) {
+            Morris.Donut({
+                element: 'MY',
+                data: [
+                    { value: 85, label: 'MySQL' },
+                    { value: 15, label: 'NOT' }
+                ],
+             
+                labelColor: '#2e2f39',
+                   gridTextSize: '14px',
+                colors: [
+                        "#005e86",
+                        "#d9d9d9"                 
+                ],
+
+                formatter: function(x) { return x + "%" },
+                  resize: true
+            });
+        }
         if ($('#CSS').length) {
             Morris.Donut({
                 element: 'CSS',
                 data: [
-                    { value: 80, label: 'CSS' },
-                    { value: 20, label: 'NOT' }
+                    { value: 87, label: 'CSS' },
+                    { value: 13, label: 'NOT' }
                 ],
              
                 labelColor: '#2e2f39',
@@ -203,8 +222,8 @@
             Morris.Donut({
                 element: 'boot',
                 data: [
-                    { value: 80, label: 'Bootstrap' },
-                    { value: 20, label: 'NOT' }
+                    { value: 85, label: 'Bootstrap' },
+                    { value: 15, label: 'NOT' }
                 ],
              
                 labelColor: '#2e2f39',
@@ -222,8 +241,8 @@
             Morris.Donut({
                 element: 'PHP',
                 data: [
-                    { value: 80, label: 'PHP' },
-                    { value: 20, label: 'NOT' }
+                    { value: 90, label: 'PHP' },
+                    { value: 10, label: 'NOT' }
                 ],
              
                 labelColor: '#2e2f39',
@@ -241,8 +260,8 @@
             Morris.Donut({
                 element: 'IONIC',
                 data: [
-                    { value: 60, label: 'IONIC' },
-                    { value: 40, label: 'NOT' }
+                    { value: 70, label: 'IONIC' },
+                    { value: 30, label: 'NOT' }
                 ],
              
                 labelColor: '#2e2f39',
