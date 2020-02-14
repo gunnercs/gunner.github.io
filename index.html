@@ -12,10 +12,56 @@
     <link rel="stylesheet" href="gun/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="gun/assets/vendor/charts/morris-bundle/morris.css">
     <title>GUNNERCS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
+<style>
+  body {
+  overflow: hidden;
+}
 
+
+/* Preloader */
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  /* change if the mask should have another color then white */
+  z-index: 99;
+  /* makes sure it stays on top */
+}
+
+#status {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  /* centers the loading animation horizontally one the screen */
+  top: 50%;
+  /* centers the loading animation vertically one the screen */
+  background-image: url(https://raw.githubusercontent.com/niklausgerber/PreLoadMe/master/img/status.gif);
+  /* path to your loading animation */
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: -100px 0 0 -100px;
+  /* is width and height divided by two */
+}
+</style>
+<script>
+  $(window).on('load', function() { // makes sure the whole site is loaded 
+  $('#status').fadeOut(); // will first fade out the loading animation 
+  $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+  $('body').delay(350).css({'overflow':'visible'});
+})
+</script>
 <body>
-<div class="bg1" style="background: url('https://sv1.picz.in.th/images/2020/02/14/xKg8Ie.jpg');background-size: cover;box-shadow: 0px 2px 10px -4px #000;">
+  <div id="preloader">
+    <div id="status">&nbsp;</div>
+  </div>
+  <div class="bg1" style="background: url('https://sv1.picz.in.th/images/2020/02/14/xKg8Ie.jpg');background-size: cover;box-shadow: 0px 2px 10px -4px #000;">
   <div style="text-align: center;padding-top: 20%;">
     <div class="text1">
       <h1 class="text2" style="color:aliceblue;text-shadow: 0px 2px 10px;">Kittipat Moonkham (Gun)</h1>
@@ -25,6 +71,7 @@
   </div>
 </div>
 <script>
+
 window.scroll({
   top: 2500, 
   left: 0, 
