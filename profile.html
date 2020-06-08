@@ -65,17 +65,40 @@
             /* border: 1px solid #ccc; */
             border-top: none;
         }
+        .hed{
+            color: snow;text-align: center;font-family: 'Lobster', cursive;
+        }
+        .bttn{
+            position: absolute;top: 0px;right: 7px;height: 50px;box-shadow: 0px 2px 4px -2px;
+        }
+        @media only screen and (max-width: 768px) {
+            .hed{
+                color: snow;text-align: left;font-family: 'Lobster', cursive;padding-left: 30px;
+            }
+            .bttn{
+                position: absolute;top: 0px;right: 30px;height: 50px;box-shadow: 0px 2px 4px -2px;
+            }
+        }
+        @media only screen and (max-width: 500px) {
+            .hed{
+                color: snow;text-align: left;font-family: 'Lobster', cursive;padding-left: 30px;
+            }
+            .bttn{
+                position: absolute;top: 0px;right: 30px;height: 50px;box-shadow: 0px 2px 4px -2px;
+            }
+        }
+        
     </style>
 </head>
 <canvas id="sakura"></canvas>
 <div class="btnbg"></div>
 
 <div style="position: absolute;top: 15px;width: 100%;overflow: auto;height: 100%;">
-    <h1 style="color: snow;text-align: center;font-family: 'Lobster', cursive;">Gunner</h1>
+    <h1 class="hed">Gunner</h1>
     
-    <div class="tab" style="position: absolute;top: 0px;right: 7px;height: 50px;box-shadow: 0px 2px 4px -2px;">
-        <button class="tablinks" onclick="openCity(event, 'EN')" id="defaultOpen"><div style="width: 25px;"><img src="https://img.icons8.com/cute-clipart/50/000000/great-britain.png" style="width: 120%;margin-top: -5px;"/></div></button>
-        <button class="tablinks" onclick="openCity(event, 'TH')"><div style="width: 25px;"><img src="https://img.icons8.com/color/48/000000/thailand.png" style="width: 120%;margin-top: -5px;margin-left: -2px;"/></div></button>
+    <div class="tab bttn">
+        <button class="tablinks" onclick="chLang(event, 'EN')" id="defaultOpen"><div style="width: 25px;"><img src="https://img.icons8.com/cute-clipart/50/000000/great-britain.png" style="width: 120%;margin-top: -5px;"/></div></button>
+        <button class="tablinks" onclick="chLang(event, 'TH')"><div style="width: 25px;"><img src="https://img.icons8.com/color/48/000000/thailand.png" style="width: 120%;margin-top: -5px;margin-left: -2px;"/></div></button>
       </div>
       
       <div id="EN" class="tabcontent">
@@ -299,7 +322,7 @@
       </div>
             
       <script>
-      function openCity(evt, cityName) {
+      function chLang(evt, cityName) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
