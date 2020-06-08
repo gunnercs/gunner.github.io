@@ -11,10 +11,11 @@
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Cardo&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Cardo&family=Lobster&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="prof.css">
     <style>
         body,h1,h2,h3,h4,h5,h6,p{
-            font-family: 'Cardo', serif;
+            font-family: 'Kodchasan', sans-serif;
         }
         body {
             padding:0;
@@ -31,7 +32,39 @@
             left:0;
             top:0;
         }
+        .tab {
+            overflow: hidden;
+            /* border: 1px solid #ccc; */
+            background-color: #f1f1f1;
+            width: max-content;
+            border-radius: 15px;
+        }
 
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            /* border: 1px solid #ccc; */
+            border-top: none;
+        }
     </style>
 </head>
 <canvas id="sakura"></canvas>
@@ -40,114 +73,251 @@
 <div style="position: absolute;top: 15px;width: 100%;overflow: auto;height: 100%;">
     <h1 style="color: snow;text-align: center;font-family: 'Lobster', cursive;">Gunner</h1>
     
-    <div class="cls">
-        <div class="row" style="margin-left: 0px;margin-right: 0px;">
-            <div class="col-sm-4 col-md-4 col-lg-2" style="margin-bottom: 20px;">
-                <div style="width: 200px;margin: auto;max-width: 100%;">
-                    <img src="https://sv1.picz.in.th/images/2020/02/14/xKg8Ie.jpg" style="width: 100%;border-radius: 10px;box-shadow: 0px 2px 7px -2px;"/>
+    <div class="tab" style="position: absolute;top: 0px;right: 7px;height: 50px;box-shadow: 0px 2px 4px -2px;">
+        <button class="tablinks" onclick="openCity(event, 'EN')" id="defaultOpen"><div style="width: 25px;"><img src="https://img.icons8.com/cute-clipart/50/000000/great-britain.png" style="width: 120%;margin-top: -5px;"/></div></button>
+        <button class="tablinks" onclick="openCity(event, 'TH')"><div style="width: 25px;"><img src="https://img.icons8.com/color/48/000000/thailand.png" style="width: 120%;margin-top: -5px;margin-left: -2px;"/></div></button>
+      </div>
+      
+      <div id="EN" class="tabcontent">
+        <div class="cls">
+            <div class="row" style="margin-left: 0px;margin-right: 0px;">
+                <div class="col-sm-4 col-md-4 col-lg-2" style="margin-bottom: 20px;">
+                    <div style="width: 200px;margin: auto;max-width: 100%;">
+                        <img src="https://sv1.picz.in.th/images/2020/02/14/xKg8Ie.jpg" style="width: 100%;border-radius: 10px;box-shadow: 0px 2px 7px -2px;"/>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-md-8 col-lg-10" style="margin-bottom: 20px;text-align: center;padding-top: 25px;background-color: whitesmoke;border-radius: 10px;padding-bottom: 15px;">
+                    <h3 style="font-size: 2rem;">KITTIPHAT MOONKHAM</h3>
                 </div>
             </div>
-            <div class="col-sm-8 col-md-8 col-lg-10" style="margin-bottom: 20px;text-align: center;padding-top: 25px;background-color: whitesmoke;border-radius: 10px;padding-bottom: 15px;">
-                <h3 style="font-size: 2rem;">KITTIPHAT MOONKHAM</h3>
-            </div>
-        </div>
-        <div class="row" style="margin-left: 0px;margin-right: 0px;">
-            <div class="col-sm-12 col-md-6 col-lg-4" style="margin-bottom: 20px;">
-                <div class="box1">
-                    <h4 style="text-align: center;">PERSONAL DATA</h4>
-                    <h6>DATE OF BIRTH : 22/03/1997</h6>
-                    <h6>HEIGHT : 181 CM</h6>
-                    <h6>WEIGHT : 78 KG</h6> 
-                    <h6>GENDER : MALE</h6> 
-                    <h6>MARITAL STATUS : SINGLE</h6> 
-                    <h6>NATIONALITY : THAI</h6> 
-                    <h6>RELIGION : BUDDHISM</h6> 
+            <div class="row" style="margin-left: 0px;margin-right: 0px;">
+                <div class="col-sm-12 col-md-6 col-lg-4" style="margin-bottom: 20px;">
+                    <div class="box1">
+                        <h4 style="text-align: center;">PERSONAL DATA</h4>
+                        <h6>DATE OF BIRTH : 22/03/1997</h6>
+                        <h6>HEIGHT : 181 CM</h6>
+                        <h6>WEIGHT : 78 KG</h6> 
+                        <h6>GENDER : MALE</h6> 
+                        <h6>MARITAL STATUS : SINGLE</h6> 
+                        <h6>NATIONALITY : THAI</h6> 
+                        <h6>RELIGION : BUDDHISM</h6> 
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-8" style="margin-bottom: 20px;">
-                <div class="box2">
-                    <h4 style="text-align: center;">EDUCATION</h4>
-                    <ul class="timeline">
-                        <li>
-                            <a target="_blank" href="#" style="color: gold;">COMPUTER SCIENCE </a>
-                            <a href="#" class="float-right" style="color: gold;">2015-2019</a>
-                            <p>CHIANG MAI RAJABHAT UNIVERSITY</p>
-                        </li>
-                        
-                    </ul>
-                </div>
-                
-            </div>
-        </div>
-        <div class="row" style="margin-left: 0px;margin-right: 0px;">
-            <div class="col-sm-12 col-md-6 col-lg-6" style="margin-bottom: 20px;">
-                <div class="box3">
-                    <h4 style="text-align: center;">SKILLS</h4>
-                    <div style="margin-bottom: 30px;">
-                        <h6 style="float: left;"><img src="https://img.icons8.com/color/50/000000/html-5.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                        <div class="progress" style="margin-top: 25px;">
-                            <div data-percentage="0%" style="width: 90%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
+                <div class="col-sm-12 col-md-6 col-lg-8" style="margin-bottom: 20px;">
+                    <div class="box2">
+                        <h4 style="text-align: center;">EDUCATION</h4>
+                        <ul class="timeline">
+                            <li>
+                                <a target="_blank" href="#" style="color: gold;">COMPUTER SCIENCE </a>
+                                <a href="#" class="float-right" style="color: gold;">2015-2019</a>
+                                <p>CHIANG MAI RAJABHAT UNIVERSITY</p>
+                            </li>
+                            
+                        </ul>
                     </div>
                     
-                    <div style="margin-bottom: 30px;">
-                        <h6 style="float: left;"><img src="https://img.icons8.com/color/50/000000/bootstrap.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                        <div class="progress">
-                            <div data-percentage="0%" style="width: 90%;background-color: #673ab7;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <div class="row" style="margin-left: 0px;margin-right: 0px;">
+                <div class="col-sm-12 col-md-6 col-lg-6" style="margin-bottom: 20px;">
+                    <div class="box3">
+                        <h4 style="text-align: center;">SKILLS</h4>
+                        <div style="margin-bottom: 30px;">
+                            <h6 style="float: left;"><img src="https://img.icons8.com/color/50/000000/html-5.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
+                            <div class="progress" style="margin-top: 25px;">
+                                <div data-percentage="0%" style="width: 90%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
                         </div>
-                    </div>
-
-                    <div style="margin-bottom: 30px;">
-                        <h6 style="float: left;"><img src="https://img.icons8.com/color/50/000000/css3.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                        <div class="progress">
-                            <div data-percentage="0%" style="width: 80%;background-color: #0277bd;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        
+                        <div style="margin-bottom: 30px;">
+                            <h6 style="float: left;"><img src="https://img.icons8.com/color/50/000000/bootstrap.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
+                            <div class="progress">
+                                <div data-percentage="0%" style="width: 90%;background-color: #673ab7;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
                         </div>
-                    </div>
-
-                    <div style="margin-bottom: 30px;">
-                        <h6 style="float: left;"><img src="https://img.icons8.com/offices/50/000000/php-logo.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                        <div class="progress">
-                            <div data-percentage="0%" style="width: 70%;" class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+    
+                        <div style="margin-bottom: 30px;">
+                            <h6 style="float: left;"><img src="https://img.icons8.com/color/50/000000/css3.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
+                            <div class="progress">
+                                <div data-percentage="0%" style="width: 80%;background-color: #0277bd;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
                         </div>
-                    </div>
-
-                    <div style="margin-bottom: 30px;">
-                        <h6 style="float: left;"><img src="https://sv1.picz.in.th/images/2020/06/05/qD0KH0.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                        <div class="progress">
-                            <div data-percentage="0%" style="width: 50%;background-color: #2874a6;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+    
+                        <div style="margin-bottom: 30px;">
+                            <h6 style="float: left;"><img src="https://img.icons8.com/offices/50/000000/php-logo.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
+                            <div class="progress">
+                                <div data-percentage="0%" style="width: 70%;" class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+    
+                        <div style="margin-bottom: 30px;">
+                            <h6 style="float: left;"><img src="https://sv1.picz.in.th/images/2020/06/05/qD0KH0.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
+                            <div class="progress">
+                                <div data-percentage="0%" style="width: 50%;background-color: #2874a6;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-12 col-md-6 col-lg-6" style="margin-bottom: 20px;">
+                    <div class="box4">
+                        <h4 style="text-align: center;">EXPERIENCE</h4>
+                        <ul class="timeline33">
+                            <li>
+                                <a target="_blank" href="#" style="color: #e86e16;">PHP Web Developer </a>
+                                <a href="#" class="float-right" style="color: #e86e16;">2019-NOW</a>
+                                <p>Thailand Web Marketing Co., Ltd.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-6" style="margin-bottom: 20px;">
-                <div class="box4">
-                    <h4 style="text-align: center;">EXPERIENCE</h4>
-                    <ul class="timeline33">
-                        <li>
-                            <a target="_blank" href="#" style="color: #e86e16;">PHP Web Developer </a>
-                            <a href="#" class="float-right" style="color: #e86e16;">2019-NOW</a>
-                            <p>Thailand Web Marketing Co., Ltd.</p>
-                        </li>
-                    </ul>
+            <div class="row" style="margin-left: 0px;margin-right: 0px;padding-bottom: 100px;">
+                <div class="col-sm-12 col-md-6 col-lg-4" style="margin-bottom: 20px;">
+                    <div class="box1" style="background-color: #f6ba0d;">
+                        <h4>ABOUT ME</h4>
+                        <h6 style="text-align: center;">I graduated from Chiang Mai Rajabhat University, majoring in Computer Science.I was an intern at Ocare Health Hub Co. Ltd as a Programmer using ASP.Net MVC and I learned about teamwork.currently working at Thailandwebmarketing as a PHP Programmer.Work goal I would like a jobs which allows for personal professional growth.</h6>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-8" style="margin-bottom: 20px;">
+                    <div class="box2" style="background-color: #ed2818;">
+                        <h4>HAVEN'T THOUGHT</h4>
+                        <h6></h6>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row" style="margin-left: 0px;margin-right: 0px;padding-bottom: 100px;">
-            <div class="col-sm-12 col-md-6 col-lg-4" style="margin-bottom: 20px;">
-                <div class="box1" style="background-color: #f6ba0d;">
-                    <h4>ABOUT ME</h4>
-                    <h6 style="text-align: center;">I graduated from Chiang Mai Rajabhat University, majoring in Computer Science.I was an intern at Ocare Health Hub Co. Ltd as a Programmer using ASP.Net MVC and I learned about teamwork.currently working at Thailandwebmarketing as a PHP Programmer.Work goal I would like a jobs which allows for personal professional growth.</h6>
+      </div>
+      
+      <div id="TH" class="tabcontent">
+        <div class="cls">
+            <div class="row" style="margin-left: 0px;margin-right: 0px;">
+                <div class="col-sm-4 col-md-4 col-lg-2" style="margin-bottom: 20px;">
+                    <div style="width: 200px;margin: auto;max-width: 100%;">
+                        <img src="https://sv1.picz.in.th/images/2020/02/14/xKg8Ie.jpg" style="width: 100%;border-radius: 10px;box-shadow: 0px 2px 7px -2px;"/>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-md-8 col-lg-10" style="margin-bottom: 20px;text-align: center;padding-top: 25px;background-color: whitesmoke;border-radius: 10px;padding-bottom: 15px;">
+                    <h3 style="font-size: 2rem;">กิตติพัฒน์  มูลคำ</h3>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-8" style="margin-bottom: 20px;">
-                <div class="box2" style="background-color: #ed2818;">
-                    <h4>REFERIENCE</h4>
-                    <h6></h6>
+            <div class="row" style="margin-left: 0px;margin-right: 0px;">
+                <div class="col-sm-12 col-md-6 col-lg-4" style="margin-bottom: 20px;">
+                    <div class="box1">
+                        <h4 style="text-align: center;">ข้อมูลส่วนตัว</h4>
+                        <h6>วันที่เกิด : 22/03/2540</h6>
+                        <h6>ส่วนสูง : 181 เซนติเมตร</h6>
+                        <h6>น้ำหนัก : 78 กิโลกรัม</h6> 
+                        <h6>เพศ : ชาย</h6> 
+                        <h6>สถานภาพ : โสด</h6> 
+                        <h6>สัญชาติ : ไทย</h6> 
+                        <h6>ศาสนา : พุทธ</h6> 
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-8" style="margin-bottom: 20px;">
+                    <div class="box2">
+                        <h4 style="text-align: center;">การศึกษา</h4>
+                        <ul class="timeline">
+                            <li>
+                                <a target="_blank" href="#" style="color: gold;">วิทยาการคอมพิวเตอร์</a>
+                                <a href="#" class="float-right" style="color: gold;">2558-2562</a>
+                                <p>มหาวิทยาลัยราชภัฏเชียงใหม่</p>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row" style="margin-left: 0px;margin-right: 0px;">
+                <div class="col-sm-12 col-md-6 col-lg-6" style="margin-bottom: 20px;">
+                    <div class="box3">
+                        <h4 style="text-align: center;">ทักษะ</h4>
+                        <div style="margin-bottom: 30px;">
+                            <h6 style="float: left;"><img src="https://img.icons8.com/color/50/000000/html-5.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
+                            <div class="progress" style="margin-top: 25px;">
+                                <div data-percentage="0%" style="width: 90%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 30px;">
+                            <h6 style="float: left;"><img src="https://img.icons8.com/color/50/000000/bootstrap.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
+                            <div class="progress">
+                                <div data-percentage="0%" style="width: 90%;background-color: #673ab7;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+    
+                        <div style="margin-bottom: 30px;">
+                            <h6 style="float: left;"><img src="https://img.icons8.com/color/50/000000/css3.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
+                            <div class="progress">
+                                <div data-percentage="0%" style="width: 80%;background-color: #0277bd;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+    
+                        <div style="margin-bottom: 30px;">
+                            <h6 style="float: left;"><img src="https://img.icons8.com/offices/50/000000/php-logo.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
+                            <div class="progress">
+                                <div data-percentage="0%" style="width: 70%;" class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+    
+                        <div style="margin-bottom: 30px;">
+                            <h6 style="float: left;"><img src="https://sv1.picz.in.th/images/2020/06/05/qD0KH0.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
+                            <div class="progress">
+                                <div data-percentage="0%" style="width: 50%;background-color: #2874a6;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6" style="margin-bottom: 20px;">
+                    <div class="box4">
+                        <h4 style="text-align: center;">ประสบการณ์การทำงาน</h4>
+                        <ul class="timeline33">
+                            <li>
+                                <a target="_blank" href="#" style="color: #e86e16;">PHP Web Developer </a>
+                                <a href="#" class="float-right" style="color: #e86e16;">2562-ตอนนี้</a>
+                                <p>Thailand Web Marketing Co., Ltd.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-left: 0px;margin-right: 0px;padding-bottom: 100px;">
+                <div class="col-sm-12 col-md-6 col-lg-4" style="margin-bottom: 20px;">
+                    <div class="box1" style="background-color: #f6ba0d;">
+                        <h4>เกี่ยวกับฉัน</h4>
+                        <h6 style="text-align: center;">I graduated from Chiang Mai Rajabhat University, majoring in Computer Science.I was an intern at Ocare Health Hub Co. Ltd as a Programmer using ASP.Net MVC and I learned about teamwork.currently working at Thailandwebmarketing as a PHP Programmer.Work goal I would like a jobs which allows for personal professional growth.</h6>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-8" style="margin-bottom: 20px;">
+                    <div class="box2" style="background-color: #ed2818;">
+                        <h4>ยังไม่ได้คิด</h4>
+                        <h6></h6>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="none" style="padding: 10px;position: fixed;bottom: 0px;width: 100%;right: 0px;text-align: end;">
+      </div>
+            
+      <script>
+      function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+      
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+      </script>
+    
+    <div class="none" style="padding: 10px;position: fixed;bottom: 0px;width: 100%;right: 15px;text-align: end;">
         <button class="btn btn-danger" onclick="window.location.href='https://gunnercs.github.io/gunner.github.io/'" style="font-size: 2rem;border-radius: 50%;box-shadow: 0px 2px 7px -2px black;width: 50px;padding: 10px;"><img src="https://sv1.picz.in.th/images/2020/06/05/qoejhu.png" style="width: 100%;" /></button>
     </div>
 
