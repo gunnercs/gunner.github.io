@@ -184,8 +184,27 @@
             Morris.Donut({
                 element: 'MY',
                 data: [
-                    { value: 85, label: 'MySQL' },
-                    { value: 15, label: 'NOT' }
+                    { value: 90, label: 'MySQL' },
+                    { value: 10, label: 'NOT' }
+                ],
+             
+                labelColor: '#2e2f39',
+                   gridTextSize: '14px',
+                colors: [
+                        "#005e86",
+                        "#d9d9d9"                 
+                ],
+
+                formatter: function(x) { return x + "%" },
+                  resize: true
+            });
+        }
+        if ($('#MSS').length) {
+            Morris.Donut({
+                element: 'MSS',
+                data: [
+                    { value: 90, label: 'MSSQL' },
+                    { value: 10, label: 'NOT' }
                 ],
              
                 labelColor: '#2e2f39',
@@ -222,7 +241,7 @@
             Morris.Donut({
                 element: 'boot',
                 data: [
-                    { value: 85, label: 'Bootstrap' },
+                    { value: 85, label: 'Javascript' },
                     { value: 15, label: 'NOT' }
                 ],
              
@@ -260,8 +279,8 @@
             Morris.Donut({
                 element: 'IONIC',
                 data: [
-                    { value: 70, label: 'IONIC' },
-                    { value: 30, label: 'NOT' }
+                    { value: 40, label: 'IONIC' },
+                    { value: 60, label: 'NOT' }
                 ],
              
                 labelColor: '#2e2f39',
@@ -279,8 +298,8 @@
             Morris.Donut({
                 element: 'MVC',
                 data: [
-                    { value: 50, label: 'ASP.NET MVC' },
-                    { value: 50, label: 'NOT' }
+                    { value: 40, label: 'ASP.NET MVC' },
+                    { value: 60, label: 'NOT' }
                 ],
              
                 labelColor: '#2e2f39',
@@ -298,8 +317,8 @@
             Morris.Donut({
                 element: 'ANDROID',
                 data: [
-                    { value: 50, label: 'ANDROID STUDIO' },
-                    { value: 50, label: 'NOT' }
+                    { value: 40, label: 'ANDROID STUDIO' },
+                    { value: 60, label: 'NOT' }
                 ],
              
                 labelColor: '#2e2f39',
