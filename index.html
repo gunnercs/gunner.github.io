@@ -56,6 +56,15 @@
             'overflow': 'visible'
         });
     })
+
+    $(function() {
+        var d = new Date();
+        var year = d.getFullYear();
+        var age = year-1997;
+        $('#age_show').html(age);
+    });
+    
+    
 </script>
 
 <body>
@@ -155,7 +164,7 @@
                                     <h4>Birthday : </h4>
                                 </div>
                                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-                                    <h4>22 March 1997</h4>
+                                    <h4>22 March 1997 (<span id="age_show"></span>)</h4>
                                 </div>
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
                                     <h4>Email : </h4>
