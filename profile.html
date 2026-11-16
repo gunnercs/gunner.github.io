@@ -1,790 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>GUNNERCS</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=Cardo&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=Cardo&family=Lobster&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="prof.css">
-    <style>
-        body,h1,h2,h3,h4,h5,h6,p{
-            font-family: 'Kodchasan', sans-serif;
-        }
-        body {
-            padding:0;
-            margin:0;
-            overflow:hidden;
-            height: 600px;
-        }
-        canvas {
-            padding:0;
-            margin:0;
-        }
-        div.btnbg {
-            position:fixed;
-            left:0;
-            top:0;
-        }
-        .tab {
-            overflow: hidden;
-            /* border: 1px solid #ccc; */
-            background-color: #f1f1f1;
-            width: max-content;
-            border-radius: 15px;
-        }
-
-        .tab button {
-            background-color: inherit;
-            float: left;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            padding: 14px 16px;
-            transition: 0.3s;
-            font-size: 17px;
-        }
-
-        .tab button:hover {
-            background-color: #ddd;
-        }
-
-        .tab button.active {
-            background-color: skyblue;
-        }
-
-        .tabcontent {
-            display: none;
-            padding: 6px 12px;
-            /* border: 1px solid #ccc; */
-            border-top: none;
-        }
-        .hed{
-            color: snow;text-align: center;font-family: 'Lobster', cursive;
-        }
-        .bttn{
-            position: absolute;top: 0px;right: 15px;height: 50px;box-shadow: 0px 2px 4px -2px;
-        }
-        .noner{
-            display: block;
-        }
-        @media only screen and (max-width: 768px) {
-            .hed{
-                color: snow;text-align: left;font-family: 'Lobster', cursive;padding-left: 30px;
-            }
-            .bttn{
-                position: absolute;top: 0px;right: 30px;height: 50px;box-shadow: 0px 2px 4px -2px;
-            }
-        }
-        @media only screen and (max-width: 500px) {
-            .hed{
-                color: snow;text-align: left;font-family: 'Lobster', cursive;padding-left: 20px;
-            }
-            .bttn{
-                position: absolute;top: 0px;right: 20px;height: 50px;box-shadow: 0px 2px 4px -2px;
-            }
-            .noner{
-                display: none;
-            }
-        }
-        
-    </style>
-</head>
-<canvas id="sakura"></canvas>
-<div class="btnbg"></div>
-
-<div style="position: absolute;top: 15px;width: 100%;overflow: auto;height: 100%;">
-    <h1 class="hed">Gunner</h1>
-    
-    <div class="tab bttn">
-        <button class="tablinks" onclick="chLang(event, 'EN')" id="defaultOpen"><div style="width: 25px;"><img src="icn/eng.png" style="width: 120%;margin-top: -5px;"/></div></button>
-        <button class="tablinks" onclick="chLang(event, 'TH')"><div style="width: 25px;"><img src="icn/th.png" style="width: 120%;margin-top: -5px;margin-left: -2px;"/></div></button>
-      </div>
-      
-      <div id="EN" class="tabcontent">
-        <div class="cls">
-            <div class="row" style="margin-left: 0px;margin-right: 0px;">
-                <div class="col-sm-4 col-md-4 col-lg-2" style="margin-bottom: 20px;">
-                    <div style="width: 200px;margin: auto;max-width: 100%;">
-                        <img src="icn/gn.jpg" style="width: 100%;border-radius: 10px;box-shadow: 0px 2px 7px -2px;"/>
-                    </div>
-                </div>
-                <div class="col-sm-8 col-md-8 col-lg-10" style="margin-bottom: 20px;text-align: center;padding-top: 25px;background-color: whitesmoke;border-radius: 10px;padding-bottom: 15px;">
-                    <h3 style="font-size: 2rem;">KITTIPHAT MOONKHAM</h3>
-                </div>
-            </div>
-            <div class="row" style="margin-left: 0px;margin-right: 0px;">
-                <div class="col-sm-12 col-md-6 col-lg-4" style="margin-bottom: 20px;">
-                    <div class="box1">
-                        <h4 style="text-align: center;">PERSONAL DATA</h4>
-                        <h6>DATE OF BIRTH : 22/03/1997</h6>
-                        <h6>HEIGHT : 181 CM</h6>
-                        <h6>WEIGHT : 72 KG</h6> 
-                        <h6>GENDER : MALE</h6> 
-                        <h6>MARITAL STATUS : SINGLE</h6> 
-                        <h6>NATIONALITY : THAI</h6> 
-                        <h6>RELIGION : BUDDHISM</h6> 
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-8" style="margin-bottom: 20px;">
-                    <div class="box2">
-                        <h4 style="text-align: center;">EDUCATION</h4>
-                        <ul class="timeline">
-                            <li>
-                                <a target="_blank" href="#" style="color: gold;">COMPUTER SCIENCE </a>
-                                <a href="#" class="float-right" style="color: gold;">2015-2019</a>
-                                <p>CHIANG MAI RAJABHAT UNIVERSITY</p>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                    
-                </div>
-            </div>
-            <style>
-                .box3 img{
-                    width: 50px;
-                }
-            </style>
-            <div class="row" style="margin-left: 0px;margin-right: 0px;">
-                <div class="col-sm-12 col-md-6 col-lg-6" style="margin-bottom: 20px;">
-                    <div class="box3">
-                        <h4 style="text-align: center;">SKILLS</h4>
-                        <div style="margin-bottom: 30px;">
-                            <h6 style="float: left;"><img src="icn/html.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                            <div class="progress" style="margin-top: 25px;">
-                                <div data-percentage="0%" style="width: 90%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        
-                        <div style="margin-bottom: 30px;">
-                            <h6 style="float: left;"><img src="icn/boot.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                            <div class="progress">
-                                <div data-percentage="0%" style="width: 90%;background-color: #673ab7;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div style="margin-bottom: 30px;">
-                            <h6 style="float: left;"><img src="icn/javascript.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                            <div class="progress">
-                                <div data-percentage="0%" style="width: 90%;background-color: #F4D03F;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-    
-                        <div style="margin-bottom: 30px;">
-                            <h6 style="float: left;"><img src="icn/sql.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                            <div class="progress">
-                                <div data-percentage="0%" style="width: 80%;background-color: #E74C3C;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div style="margin-bottom: 30px;">
-                            <h6 style="float: left;"><img src="icn/css3.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                            <div class="progress">
-                                <div data-percentage="0%" style="width: 80%;background-color: #0277bd;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-    
-                        <div style="margin-bottom: 30px;">
-                            <h6 style="float: left;"><img src="icn/php.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                            <div class="progress">
-                                <div data-percentage="0%" style="width: 70%;" class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-    
-                        <div style="margin-bottom: 30px;">
-                            <h6 style="float: left;"><img src="icn/as.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                            <div class="progress">
-                                <div data-percentage="0%" style="width: 50%;background-color: #00E676;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div style="margin-bottom: 30px;">
-                            <h6 style="float: left;"><img src="icn/oracle.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                            <div class="progress">
-                                <div data-percentage="0%" style="width: 50%;background-color: #EF0F14;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div style="margin-bottom: 30px;">
-                            <h6 style="float: left;"><img src="icn/mysql.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                            <div class="progress">
-                                <div data-percentage="0%" style="width: 50%;background-color: #058F92;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-6" style="margin-bottom: 20px;">
-                    <div class="box4">
-                        <h4 style="text-align: center;">EXPERIENCE</h4>
-                        <ul class="timeline33">
-                            <li>
-                                <a target="_blank" href="#" style="color: #e86e16;">PHP Web Developer </a>
-                                <a href="#" class="float-right" style="color: #e86e16;">2019-2020</a>
-                                <p style="margin-bottom: 0px;">Thailand Web Marketing Co., Ltd.</p>
-                                <div class="row">
-                                    <div class="col-6">- PHP</div>
-                                    <div class="col-6">- Css</div>
-                                    <div class="col-6">- JavaScript</div>
-                                    <div class="col-6">- MySql</div>
-                                    <div class="col-6">- Bootstrap</div>
-                                    <div class="col-6">- Android Studio</div>
-                                </div>
-                                
-                                
-                            </li>
-                            <li>
-                                <a target="_blank" href="#" style="color: #e86e16;">PHP Web Developer </a>
-                                <a href="#" class="float-right" style="color: #e86e16;">2020-2022</a>
-                                <p style="margin-bottom: 0px;">Advanced Research Group Co., Ltd.</p>
-                                <div class="row">
-                                    <div class="col-12">- PHP (Codeigniter)</div>
-                                    <div class="col-12">- Css</div>
-                                    <div class="col-12">- JavaScript</div>
-                                    <div class="col-12">- Jquery</div>
-                                    <div class="col-12">- MySql</div>
-                                    <div class="col-12">- MsSql</div>
-                                    <div class="col-12">- Oracle</div>
-                                </div>
-                            </li>
-                            <li>
-                                <a target="_blank" href="#" style="color: #e86e16;">Programmer Analyst </a>
-                                <a href="#" class="float-right" style="color: #e86e16;">2022-NOW</a>
-                                <p style="margin-bottom: 0px;">Meiko Trans (Thailand) Co., Ltd.</p>
-                                <div class="row">
-                                    <div class="col-12">- PHP (Codeigniter)</div>
-                                    <div class="col-12">- Css</div>
-                                    <div class="col-12">- JavaScript</div>
-                                    <div class="col-12">- Jquery</div>
-                                    <div class="col-12">- MySql</div>
-                                    <div class="col-12">- MsSql</div>
-                                    <div class="col-12">- Oracle</div>
-                                    <div class="col-12">- Ionic Framework</div>
-                                    <div class="col-12">- Angular</div>
-                                    <div class="col-12">- TypeScript</div>
-                                    <div class="col-12">- Node JS</div>
-                                    <div class="col-12">- Android Studio</div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="row" style="margin-left: 0px;margin-right: 0px;padding-bottom: 100px;">
-                <div class="col-sm-12 col-md-6 col-lg-4" style="margin-bottom: 20px;">
-                    <div class="box1" style="background-color: #f6ba0d;">
-                        <h4>ABOUT ME</h4>
-                        <h6 style="text-align: center;">HI !!, I graduated from Chiang Mai Rajabhat University, majoring in Computer Science.I was an intern at Ocare Health Hub Co. Ltd as a Programmer using ASP.Net MVC and I learned about teamwork.currently working at Thailandwebmarketing as a PHP Programmer.Work goal I would like a jobs which allows for personal professional growth.</h6>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-8" style="margin-bottom: 20px;">
-                    <div class="box2" style="background-color: #ed2818;">
-                        <h4>Advanced Research Group</h4>
-                        <h6>From the work here, learn how to use PHP to connect to SQL server. Use websocket and Facebook API,Instagram API,Line API and Twitter API.</h6>
-                        <h4>Meiko Trans</h4>
-                        <h6>
-                            The job involves programming to support employees within the company, with opportunities to learn new languages and technologies. It provides challenges such as developing mobile applications using tools like Android Studio and Ionic. This will allow you to continuously face new challenges in your work here.
-                        </h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-      
-      <div id="TH" class="tabcontent">
-        <div class="cls">
-            <div class="row" style="margin-left: 0px;margin-right: 0px;">
-                <div class="col-sm-4 col-md-4 col-lg-2" style="margin-bottom: 20px;">
-                    <div style="width: 200px;margin: auto;max-width: 100%;">
-                        <img src="icn/gn.jpg" style="width: 100%;border-radius: 10px;box-shadow: 0px 2px 7px -2px;"/>
-                    </div>
-                </div>
-                <div class="col-sm-8 col-md-8 col-lg-10" style="margin-bottom: 20px;text-align: center;padding-top: 25px;background-color: whitesmoke;border-radius: 10px;padding-bottom: 15px;">
-                    <h3 style="font-size: 2rem;">กิตติพัฒน์  มูลคำ</h3>
-                </div>
-            </div>
-            <div class="row" style="margin-left: 0px;margin-right: 0px;">
-                <div class="col-sm-12 col-md-6 col-lg-4" style="margin-bottom: 20px;">
-                    <div class="box1">
-                        <h4 style="text-align: center;">ข้อมูลส่วนตัว</h4>
-                        <h6>วันที่เกิด : 22/03/2540</h6>
-                        <h6>ส่วนสูง : 181 เซนติเมตร</h6>
-                        <h6>น้ำหนัก : 72 กิโลกรัม</h6> 
-                        <h6>เพศ : ชาย</h6> 
-                        <h6>สถานภาพ : โสด</h6> 
-                        <h6>สัญชาติ : ไทย</h6> 
-                        <h6>ศาสนา : พุทธ</h6> 
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-8" style="margin-bottom: 20px;">
-                    <div class="box2">
-                        <h4 style="text-align: center;">การศึกษา</h4>
-                        <ul class="timeline">
-                            <li>
-                                <a target="_blank" href="#" style="color: gold;">วิทยาการคอมพิวเตอร์</a>
-                                <a href="#" class="float-right" style="color: gold;">2558-2562</a>
-                                <p>มหาวิทยาลัยราชภัฏเชียงใหม่</p>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="row" style="margin-left: 0px;margin-right: 0px;">
-                <div class="col-sm-12 col-md-6 col-lg-6" style="margin-bottom: 20px;">
-                    <div class="box3">
-                        <h4 style="text-align: center;">ทักษะ</h4>
-                        <div style="margin-bottom: 30px;">
-                            <h6 style="float: left;"><img src="icn/html.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                            <div class="progress" style="margin-top: 25px;">
-                                <div data-percentage="0%" style="width: 90%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        
-                        <div style="margin-bottom: 30px;">
-                            <h6 style="float: left;"><img src="icn/boot.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                            <div class="progress">
-                                <div data-percentage="0%" style="width: 90%;background-color: #673ab7;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div style="margin-bottom: 30px;">
-                            <h6 style="float: left;"><img src="icn/javascript.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                            <div class="progress">
-                                <div data-percentage="0%" style="width: 90%;background-color: #F4D03F;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-    
-                        <div style="margin-bottom: 30px;">
-                            <h6 style="float: left;"><img src="icn/sql.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                            <div class="progress">
-                                <div data-percentage="0%" style="width: 80%;background-color: #E74C3C;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div style="margin-bottom: 30px;">
-                            <h6 style="float: left;"><img src="icn/css3.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                            <div class="progress">
-                                <div data-percentage="0%" style="width: 80%;background-color: #0277bd;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-    
-                        <div style="margin-bottom: 30px;">
-                            <h6 style="float: left;"><img src="icn/php.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                            <div class="progress">
-                                <div data-percentage="0%" style="width: 70%;" class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-    
-                        <div style="margin-bottom: 30px;">
-                            <h6 style="float: left;"><img src="icn/as.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                            <div class="progress">
-                                <div data-percentage="0%" style="width: 50%;background-color: #00E676;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div style="margin-bottom: 30px;">
-                            <h6 style="float: left;"><img src="icn/oracle.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                            <div class="progress">
-                                <div data-percentage="0%" style="width: 50%;background-color: #EF0F14;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div style="margin-bottom: 30px;">
-                            <h6 style="float: left;"><img src="icn/mysql.png" style="margin-top: -15px;margin-right: 5px;"/></h6>
-                            <div class="progress">
-                                <div data-percentage="0%" style="width: 50%;background-color: #058F92;" class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-6" style="margin-bottom: 20px;">
-                    <div class="box4">
-                        <h4 style="text-align: center;">ประสบการณ์การทำงาน</h4>
-                        <ul class="timeline33">
-                            <li>
-                                <a target="_blank" href="#" style="color: #e86e16;">PHP Web Developer </a>
-                                <a href="#" class="float-right" style="color: #e86e16;">2562-2563</a>
-                                <p style="margin-bottom: 0px;">Thailand Web Marketing Co., Ltd.</p>
-                                <div class="row">
-                                    <div class="col-6">- PHP</div>
-                                    <div class="col-6">- Css</div>
-                                    <div class="col-6">- JavaScript</div>
-                                    <div class="col-6">- MySql</div>
-                                    <div class="col-6">- Bootstrap</div>
-                                    <div class="col-6">- Android Studio</div>
-                                </div>
-                            </li>
-                            <li>
-                                <a target="_blank" href="#" style="color: #e86e16;">PHP Web Developer </a>
-                                <a href="#" class="float-right" style="color: #e86e16;">2020-2022</a>
-                                <p style="margin-bottom: 0px;">Advanced Research Group Co., Ltd.</p>
-                                <div class="row">
-                                    <div class="col-12">- PHP (Codeigniter)</div>
-                                    <div class="col-12">- Css</div>
-                                    <div class="col-12">- JavaScript</div>
-                                    <div class="col-12">- Jquery</div>
-                                    <div class="col-12">- MySql</div>
-                                    <div class="col-12">- MsSql</div>
-                                    <div class="col-12">- Oracle</div>
-                                </div>
-                            </li>
-                            <li>
-                                <a target="_blank" href="#" style="color: #e86e16;">Programmer Analyst </a>
-                                <a href="#" class="float-right" style="color: #e86e16;">2022-NOW</a>
-                                <p style="margin-bottom: 0px;">Meiko Trans (Thailand) Co., Ltd.</p>
-                                <div class="row">
-                                    <div class="col-12">- PHP (Codeigniter)</div>
-                                    <div class="col-12">- Css</div>
-                                    <div class="col-12">- JavaScript</div>
-                                    <div class="col-12">- Jquery</div>
-                                    <div class="col-12">- MySql</div>
-                                    <div class="col-12">- MsSql</div>
-                                    <div class="col-12">- Oracle</div>
-                                    <div class="col-12">- Ionic Framework</div>
-                                    <div class="col-12">- Angular</div>
-                                    <div class="col-12">- TypeScript</div>
-                                    <div class="col-12">- Node JS</div>
-                                    <div class="col-12">- Android Studio</div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="row" style="margin-left: 0px;margin-right: 0px;padding-bottom: 100px;">
-                <div class="col-sm-12 col-md-6 col-lg-4" style="margin-bottom: 20px;">
-                    <div class="box1" style="background-color: #f6ba0d;">
-                        <h4>เกี่ยวกับฉัน</h4>
-                        <h6 style="text-align: center;">สวัสดี !!,ผมจบจากมหาวิทยาลัยราชภัฏเชียงใหม่ สาขาวิทยาการคอมพิวเตอร์, ผมเคยฝึกงานอยู่ที่ Ocare Health Hub Co. Ltd ในตำแหน่ง Programmer ตอนฝึกงานอยู่ที่นี่ ภาษาหลักที่ใช้เขียนโปรแกรมคือ ASP.Net MVC และที่นี่ทำงานเป็นทีมเวิร์คทุกอย่างดูลงตัวไปหมด. ปัจจุบันผมทำงานอยู่ที่ Thailandwebmarketing ภาษาหลักที่ใช้เขียนโปรแกรมคือ PHP.</h6>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-8" style="margin-bottom: 20px;">
-                    <div class="box2" style="background-color: #ed2818;">
-                        <h4>Advanced Research Group </h4>
-                        <h6>จากการทำงานที่นี่ ทำให้ได้เรียนรู้เกี่ยวกับการใช้ php ต่อกับ sql sever การใช้ websocket เอามาผสานกับ Facebook API,Instagram,Line API,Twitter API</h6>
-                        <br>
-                        <h4>Meiko Trans </h4>
-                        <h6>การทำงานในลักษณะนี้จะเกี่ยวข้องกับการเขียนโปรแกรมเพื่อรองรับการทำงานของพนักงานในบริษัท โดยเน้นการเรียนรู้และใช้ภาษาใหม่ ๆ รวมถึงการเรียนรู้เทคโนโลยีและเครื่องมือใหม่ ๆ เช่น การพัฒนา Mobile Application โดยใช้ Android Studio หรือ Ionic ซึ่งจะช่วยให้คุณได้เผชิญกับความท้าทายใหม่ ๆ ในการทำงานที่นี่ครับ</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-            
-<script>
-    function chLang(evt, LangGu) {
-        var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-            tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-            document.getElementById(LangGu).style.display = "block";
-            evt.currentTarget.className += " active";
-      }
-
-      document.getElementById("defaultOpen").click();
-</script>
-    
-    <div class="none" style="padding: 10px;position: fixed;bottom: 0px;width: 100%;right: 15px;text-align: end;">
-        <button class="btn btn-danger" onclick="window.location.href='https://gunnercs.github.io/gunner.github.io/'" style="font-size: 2rem;border-radius: 50%;box-shadow: 0px 2px 7px -2px black;width: 50px;padding: 10px;"><i class="fa fa-arrows-alt" aria-hidden="true"></i></button>
-    </div>
-
-    <div class="noner" style="padding: 10px;position: fixed;bottom: 0px;width: 100%;right: 15px;text-align: end;">
-        <button class="btn btn-danger" onclick="window.location.href='https://gunnercs.github.io/gunner.github.io/'" style="font-size: 1.3rem;border-radius: 15px;box-shadow: 0px 2px 7px -2px black;padding: 5px 20px;">Full Version</button>
-    </div>
-</div>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GUNNER | Cosmic Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Kodchasan:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
+:root{
+  --bg:#04050d;
+  --card:rgba(18,20,48,.55);
+  --line:rgba(150,160,255,.18);
+  --text:#e8eaff;
+  --muted:#9aa0cf;
+  --a1:#7c5cff;
+  --a2:#2fd4ff;
+  --a3:#ff6bd6;
+  --gold:#ffcf6b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Kodchasan',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+#stars{position:fixed;inset:0;z-index:0}
+.nebula{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(60vw 50vh at 85% 10%,rgba(124,92,255,.28),transparent 70%),
+    radial-gradient(50vw 50vh at 10% 85%,rgba(47,212,255,.18),transparent 70%),
+    radial-gradient(40vw 40vh at 60% 60%,rgba(255,107,214,.12),transparent 70%);
+}
+.planet{position:fixed;border-radius:50%;z-index:0;pointer-events:none}
+.planet.p1{width:260px;height:260px;right:-90px;top:18vh;
+  background:radial-gradient(circle at 30% 30%,#ffd9a0,#e0783c 45%,#6b2a1a 80%);
+  box-shadow:inset -40px -30px 70px rgba(0,0,0,.7),0 0 80px rgba(255,150,80,.25);opacity:.85}
+.planet.p1::after{content:"";position:absolute;left:-40%;right:-40%;top:42%;height:16%;
+  border:2px solid rgba(255,220,170,.45);border-radius:50%;transform:rotate(-18deg)}
+.planet.p2{width:120px;height:120px;left:-40px;bottom:12vh;
+  background:radial-gradient(circle at 35% 30%,#9ee8ff,#2a6fd6 50%,#0a1a4a 85%);
+  box-shadow:inset -20px -14px 40px rgba(0,0,0,.7),0 0 50px rgba(47,212,255,.3);opacity:.8}
+.wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:28px 20px 120px}
+
+/* top bar */
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px}
+.logo{font-family:'Orbitron',sans-serif;font-weight:900;letter-spacing:.2em;font-size:1.1rem;
+  background:linear-gradient(90deg,var(--a2),var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lang{display:flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px;backdrop-filter:blur(10px)}
+.lang button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:.9rem;padding:6px 16px;border-radius:999px;cursor:pointer;transition:.25s}
+.lang button.on{background:linear-gradient(135deg,var(--a1),var(--a2));color:#fff;box-shadow:0 0 18px rgba(124,92,255,.6)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center;margin-bottom:56px}
+.avatar{position:relative;width:230px;height:230px}
+.avatar img{position:absolute;inset:18px;width:calc(100% - 36px);height:calc(100% - 36px);border-radius:50%;object-fit:cover;
+  background:linear-gradient(135deg,var(--a1),var(--a2));border:3px solid rgba(255,255,255,.15)}
+.orbit{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(124,200,255,.45);animation:spin 18s linear infinite}
+.orbit.o2{inset:-16px;border-color:rgba(255,107,214,.35);animation-duration:28s;animation-direction:reverse}
+.orbit::after{content:"";position:absolute;top:-6px;left:50%;width:12px;height:12px;border-radius:50%;
+  background:var(--a2);box-shadow:0 0 14px var(--a2)}
+.orbit.o2::after{background:var(--a3);box-shadow:0 0 14px var(--a3)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hello{font-family:'Orbitron',sans-serif;color:var(--a2);letter-spacing:.3em;font-size:.8rem;margin-bottom:8px}
+h1{font-size:clamp(2rem,5vw,3.6rem);font-weight:500;line-height:1.15;
+  background:linear-gradient(90deg,#fff,#b9b0ff 50%,var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{margin-top:10px;font-size:1.15rem;color:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip{border:1px solid var(--line);background:var(--card);padding:6px 14px;border-radius:999px;font-size:.85rem;color:var(--muted);backdrop-filter:blur(8px)}
+.chip b{color:var(--text);font-weight:500}
+
+/* cards */
+.grid{display:grid;gap:22px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;backdrop-filter:blur(14px);
+  box-shadow:0 10px 40px rgba(0,0,0,.35);position:relative;overflow:hidden;transition:.3s}
+.card:hover{transform:translateY(-4px);border-color:rgba(124,200,255,.4)}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--a2),var(--a3),transparent);opacity:.7}
+h2{font-family:'Orbitron',sans-serif;font-size:.95rem;letter-spacing:.25em;text-transform:uppercase;margin-bottom:18px;color:var(--a2);display:flex;align-items:center;gap:10px}
+h2::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--a3);box-shadow:0 0 10px var(--a3)}
+.kv{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed rgba(150,160,255,.12);font-size:.95rem}
+.kv:last-child{border:0}
+.kv span:first-child{color:var(--muted)}
+.edu h3{font-weight:500;font-size:1.15rem}
+.edu .yr{color:var(--gold);font-size:.9rem}
+.edu p{color:var(--muted)}
+
+/* skills */
+.skill{margin-bottom:16px}
+.skill .row{display:flex;justify-content:space-between;font-size:.92rem;margin-bottom:6px}
+.skill .row span:last-child{color:var(--muted)}
+.bar{height:8px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--a1),var(--a2));
+  box-shadow:0 0 12px rgba(47,212,255,.6);transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+
+/* timeline */
+.tl{position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--a2),var(--a3),transparent)}
+.tl .it{position:relative;margin-bottom:26px}
+.tl .it:last-child{margin-bottom:0}
+.tl .it::before{content:"";position:absolute;left:-26px;top:6px;width:14px;height:14px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--a2);box-shadow:0 0 12px var(--a2)}
+.tl .it.now::before{background:var(--a3);border-color:var(--a3);box-shadow:0 0 16px var(--a3);animation:pulse 1.8s infinite}
+@keyframes pulse{50%{box-shadow:0 0 4px var(--a3)}}
+.tl .head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.tl .t{font-weight:500;font-size:1.08rem}
+.tl .y{color:var(--gold);font-size:.88rem;font-family:'Orbitron',sans-serif;letter-spacing:.05em}
+.tl .c{color:var(--muted);margin-bottom:8px;font-size:.93rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:.75rem;padding:3px 10px;border-radius:99px;background:rgba(124,92,255,.18);border:1px solid rgba(124,92,255,.4);color:#cfc6ff}
+
+.about p{color:#cdd1f5;margin-bottom:14px;font-size:.98rem}
+.about h3{font-weight:500;color:var(--gold);margin:6px 0 4px}
+
+.full{position:fixed;right:18px;bottom:18px;z-index:5;text-decoration:none;color:#fff;font-size:.9rem;
+  padding:10px 20px;border-radius:999px;background:linear-gradient(135deg,var(--a1),var(--a3));box-shadow:0 0 24px rgba(124,92,255,.6)}
+.full:hover{filter:brightness(1.15)}
+
+@media(max-width:720px){
+  .hero{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .chips{justify-content:center}
+  .planet.p1{opacity:.4}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
-<script id="sakura_point_vsh" type="x-shader/x_vertex">
-    uniform mat4 uProjection;
-    uniform mat4 uModelview;
-    uniform vec3 uResolution;
-    uniform vec3 uOffset;
-    uniform vec3 uDOF;  //x:focus distance, y:focus radius, z:max radius
-    uniform vec3 uFade; //x:start distance, y:half distance, z:near fade start
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div class="nebula"></div>
+<div class="planet p1"></div>
+<div class="planet p2"></div>
 
-    attribute vec3 aPosition;
-    attribute vec3 aEuler;
-    attribute vec2 aMisc; //x:size, y:fade
+<div class="wrap">
+  <div class="top">
+    <div class="logo">GUNNER</div>
+    <div class="lang">
+      <button id="bEN" class="on" onclick="setLang('en')">EN</button>
+      <button id="bTH" onclick="setLang('th')">TH</button>
+    </div>
+  </div>
 
-    varying vec3 pposition;
-    varying float psize;
-    varying float palpha;
-    varying float pdist;
+  <section class="hero">
+    <div class="avatar">
+      <div class="orbit"></div><div class="orbit o2"></div>
+      <img src="icn/gn.jpg" alt="Kittiphat Moonkham">
+    </div>
+    <div>
+      <div class="hello" data-en="// HELLO, UNIVERSE" data-th="// สวัสดีชาวจักรวาล"></div>
+      <h1 data-en="Kittiphat Moonkham" data-th="กิตติพัฒน์ มูลคำ"></h1>
+      <div class="role" data-en="Programmer Analyst · Web &amp; Mobile Developer" data-th="Programmer Analyst · นักพัฒนาเว็บและโมบายแอป"></div>
+      <div class="chips">
+        <div class="chip"><b>PHP</b> / CodeIgniter</div>
+        <div class="chip"><b>Angular</b> / Ionic</div>
+        <div class="chip"><b>Node.js</b> / TypeScript</div>
+        <div class="chip"><b>SQL</b> / Oracle</div>
+      </div>
+    </div>
+  </section>
 
-    //varying mat3 rotMat;
-    varying vec3 normX;
-    varying vec3 normY;
-    varying vec3 normZ;
-    varying vec3 normal;
+  <div class="grid g2" style="margin-bottom:22px">
+    <div class="card">
+      <h2 data-en="Personal Data" data-th="ข้อมูลส่วนตัว"></h2>
+      <div class="kv"><span data-en="Date of birth" data-th="วันที่เกิด"></span><span data-en="22/03/1997" data-th="22/03/2540"></span></div>
+      <div class="kv"><span data-en="Height" data-th="ส่วนสูง"></span><span data-en="181 cm" data-th="181 เซนติเมตร"></span></div>
+      <div class="kv"><span data-en="Weight" data-th="น้ำหนัก"></span><span data-en="72 kg" data-th="72 กิโลกรัม"></span></div>
+      <div class="kv"><span data-en="Gender" data-th="เพศ"></span><span data-en="Male" data-th="ชาย"></span></div>
+      <div class="kv"><span data-en="Marital status" data-th="สถานภาพ"></span><span data-en="Single" data-th="โสด"></span></div>
+      <div class="kv"><span data-en="Nationality" data-th="สัญชาติ"></span><span data-en="Thai" data-th="ไทย"></span></div>
+      <div class="kv"><span data-en="Religion" data-th="ศาสนา"></span><span data-en="Buddhism" data-th="พุทธ"></span></div>
+    </div>
+    <div class="card edu">
+      <h2 data-en="Education" data-th="การศึกษา"></h2>
+      <div class="tl">
+        <div class="it">
+          <div class="head"><div class="t" data-en="Computer Science" data-th="วิทยาการคอมพิวเตอร์"></div><div class="y" data-en="2015 – 2019" data-th="2558 – 2562"></div></div>
+          <div class="c" data-en="Chiang Mai Rajabhat University" data-th="มหาวิทยาลัยราชภัฏเชียงใหม่"></div>
+        </div>
+      </div>
+      <h2 style="margin-top:26px" data-en="Internship" data-th="ฝึกงาน"></h2>
+      <div class="tl">
+        <div class="it">
+          <div class="t">Ocare Health Hub Co., Ltd.</div>
+          <div class="c" data-en="Programmer intern · ASP.NET MVC · teamwork" data-th="Programmer · ASP.NET MVC · การทำงานเป็นทีม"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    varying float diffuse;
-    varying float specular;
-    varying float rstop;
-    varying float distancefade;
+  <div class="grid g2" style="margin-bottom:22px">
+    <div class="card">
+      <h2 data-en="Skills" data-th="ทักษะ"></h2>
+      <div id="skills"></div>
+    </div>
+    <div class="card">
+      <h2 data-en="Experience" data-th="ประสบการณ์การทำงาน"></h2>
+      <div class="tl">
+        <div class="it">
+          <div class="head"><div class="t">PHP Web Developer</div><div class="y" data-en="2019 – 2020" data-th="2562 – 2563"></div></div>
+          <div class="c">Thailand Web Marketing Co., Ltd.</div>
+          <div class="tags"><span>PHP</span><span>CSS</span><span>JavaScript</span><span>MySQL</span><span>Bootstrap</span><span>Android Studio</span></div>
+        </div>
+        <div class="it">
+          <div class="head"><div class="t">PHP Web Developer</div><div class="y" data-en="2020 – 2022" data-th="2563 – 2565"></div></div>
+          <div class="c">Advanced Research Group Co., Ltd.</div>
+          <div class="tags"><span>PHP (CodeIgniter)</span><span>CSS</span><span>JavaScript</span><span>jQuery</span><span>MySQL</span><span>MsSQL</span><span>Oracle</span></div>
+        </div>
+        <div class="it now">
+          <div class="head"><div class="t">Programmer Analyst</div><div class="y" data-en="2022 – NOW" data-th="2565 – ปัจจุบัน"></div></div>
+          <div class="c">Meiko Trans (Thailand) Co., Ltd.</div>
+          <div class="tags"><span>PHP (CodeIgniter)</span><span>CSS</span><span>JavaScript</span><span>jQuery</span><span>MySQL</span><span>MsSQL</span><span>Oracle</span><span>Ionic</span><span>Angular</span><span>TypeScript</span><span>Node.js</span><span>Android Studio</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    void main(void) {
-        // Projection is based on vertical angle
-        vec4 pos = uModelview * vec4(aPosition + uOffset, 1.0);
-        gl_Position = uProjection * pos;
-        gl_PointSize = aMisc.x * uProjection[1][1] / -pos.z * uResolution.y * 0.5;
-        
-        pposition = pos.xyz;
-        psize = aMisc.x;
-        pdist = length(pos.xyz);
-        palpha = smoothstep(0.0, 1.0, (pdist - 0.1) / uFade.z);
-        
-        vec3 elrsn = sin(aEuler);
-        vec3 elrcs = cos(aEuler);
-        mat3 rotx = mat3(
-            1.0, 0.0, 0.0,
-            0.0, elrcs.x, elrsn.x,
-            0.0, -elrsn.x, elrcs.x
-        );
-        mat3 roty = mat3(
-            elrcs.y, 0.0, -elrsn.y,
-            0.0, 1.0, 0.0,
-            elrsn.y, 0.0, elrcs.y
-        );
-        mat3 rotz = mat3(
-            elrcs.z, elrsn.z, 0.0, 
-            -elrsn.z, elrcs.z, 0.0,
-            0.0, 0.0, 1.0
-        );
-        mat3 rotmat = rotx * roty * rotz;
-        normal = rotmat[2];
-        
-        mat3 trrotm = mat3(
-            rotmat[0][0], rotmat[1][0], rotmat[2][0],
-            rotmat[0][1], rotmat[1][1], rotmat[2][1],
-            rotmat[0][2], rotmat[1][2], rotmat[2][2]
-        );
-        normX = trrotm[0];
-        normY = trrotm[1];
-        normZ = trrotm[2];
-        
-        const vec3 lit = vec3(0.6917144638660746, 0.6917144638660746, -0.20751433915982237);
-        
-        float tmpdfs = dot(lit, normal);
-        if(tmpdfs < 0.0) {
-            normal = -normal;
-            tmpdfs = dot(lit, normal);
-        }
-        diffuse = 0.4 + tmpdfs;
-        
-        vec3 eyev = normalize(-pos.xyz);
-        if(dot(eyev, normal) > 0.0) {
-            vec3 hv = normalize(eyev + lit);
-            specular = pow(max(dot(hv, normal), 0.0), 20.0);
-        }
-        else {
-            specular = 0.0;
-        }
-        
-        rstop = clamp((abs(pdist - uDOF.x) - uDOF.y) / uDOF.z, 0.0, 1.0);
-        rstop = pow(rstop, 0.5);
-        //-0.69315 = ln(0.5)
-        distancefade = min(1.0, exp((uFade.x - pdist) * 0.69315 / uFade.y));
-    }
+  <div class="card about">
+    <h2 data-en="About Me" data-th="เกี่ยวกับฉัน"></h2>
+    <p data-en="Hi! I graduated from Chiang Mai Rajabhat University, majoring in Computer Science. I interned at Ocare Health Hub as a programmer using ASP.NET MVC, where I learned the value of teamwork. My goal is a role that supports continuous professional growth."
+       data-th="สวัสดีครับ ผมจบจากมหาวิทยาลัยราชภัฏเชียงใหม่ สาขาวิทยาการคอมพิวเตอร์ เคยฝึกงานที่ Ocare Health Hub ในตำแหน่ง Programmer ใช้ ASP.NET MVC และได้เรียนรู้การทำงานเป็นทีม เป้าหมายของผมคืองานที่เปิดโอกาสให้เติบโตในสายอาชีพอย่างต่อเนื่อง"></p>
+    <h3>Advanced Research Group</h3>
+    <p data-en="Learned to connect PHP with SQL Server, and used WebSocket together with the Facebook, Instagram, LINE and Twitter APIs."
+       data-th="ได้เรียนรู้การใช้ PHP เชื่อมต่อ SQL Server การใช้ WebSocket ผสานกับ Facebook API, Instagram API, LINE API และ Twitter API"></p>
+    <h3>Meiko Trans</h3>
+    <p data-en="Building programs that support employees across the company, with room to learn new languages and technologies, including mobile apps with Android Studio and Ionic. New challenges every day."
+       data-th="พัฒนาโปรแกรมเพื่อสนับสนุนการทำงานของพนักงานในบริษัท เน้นเรียนรู้ภาษาและเทคโนโลยีใหม่ ๆ เช่น การพัฒนา Mobile Application ด้วย Android Studio และ Ionic ได้เจอความท้าทายใหม่อยู่เสมอ"></p>
+  </div>
+</div>
+
+<a class="full" href="https://gunnercs.github.io/gunner.github.io/">Full Version ↗</a>
+
+<script>
+/* ---------- language ---------- */
+function setLang(l){
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    el.innerHTML=el.getAttribute('data-'+l);
+  });
+  document.getElementById('bEN').classList.toggle('on',l==='en');
+  document.getElementById('bTH').classList.toggle('on',l==='th');
+  try{localStorage.setItem('lang',l)}catch(e){}
+}
+
+/* ---------- skills ---------- */
+var skills=[['HTML',90],['Bootstrap',90],['JavaScript',90],['SQL',80],['CSS3',80],['PHP',70],['Android Studio',50],['Oracle',50],['MySQL',50]];
+var box=document.getElementById('skills');
+skills.forEach(function(s){
+  box.insertAdjacentHTML('beforeend','<div class="skill"><div class="row"><span>'+s[0]+'</span><span>'+s[1]+'%</span></div><div class="bar"><i data-w="'+s[1]+'"></i></div></div>');
+});
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){ if(e.isIntersecting){ e.target.querySelectorAll('i').forEach(function(b){b.style.width=b.dataset.w+'%'}); io.unobserve(e.target);} });
+},{threshold:.2});
+io.observe(box);
+
+/* ---------- starfield ---------- */
+var c=document.getElementById('stars'),x=c.getContext('2d'),W,H,stars=[],shoots=[],mx=0,my=0;
+function resize(){
+  W=c.width=innerWidth;H=c.height=innerHeight;
+  var n=Math.round(W*H/5500);
+  stars=[];
+  for(var i=0;i<n;i++)stars.push({x:Math.random()*W,y:Math.random()*H,z:Math.random()*.9+.1,r:Math.random()*1.3+.2,p:Math.random()*6.28,s:Math.random()*.02+.005});
+}
+addEventListener('resize',resize);resize();
+addEventListener('mousemove',function(e){mx=(e.clientX/W-.5);my=(e.clientY/H-.5)});
+function frame(){
+  x.clearRect(0,0,W,H);
+  stars.forEach(function(s){
+    s.p+=s.s;
+    var a=.4+.6*Math.abs(Math.sin(s.p));
+    var px=s.x-mx*20*s.z, py=s.y-my*20*s.z;
+    x.globalAlpha=a*s.z;
+    x.fillStyle=s.r>1.1?'#cfe6ff':'#ffffff';
+    x.beginPath();x.arc(px,py,s.r,0,6.283);x.fill();
+    s.y+=.04*s.z; if(s.y>H)s.y=0;
+  });
+  if(Math.random()<.008)shoots.push({x:Math.random()*W,y:Math.random()*H*.5,vx:7+Math.random()*5,vy:3+Math.random()*3,l:1});
+  shoots=shoots.filter(function(s){
+    x.globalAlpha=s.l;
+    var g=x.createLinearGradient(s.x,s.y,s.x-s.vx*8,s.y-s.vy*8);
+    g.addColorStop(0,'#fff');g.addColorStop(1,'rgba(124,200,255,0)');
+    x.strokeStyle=g;x.lineWidth=1.6;x.beginPath();x.moveTo(s.x,s.y);x.lineTo(s.x-s.vx*8,s.y-s.vy*8);x.stroke();
+    s.x+=s.vx;s.y+=s.vy;s.l-=.015;return s.l>0;
+  });
+  x.globalAlpha=1;
+  requestAnimationFrame(frame);
+}
+frame();
+
+var saved='en';try{saved=localStorage.getItem('lang')||'en'}catch(e){}
+setLang(saved);
 </script>
-<script id="sakura_point_fsh" type="x-shader/x_fragment">
-    #ifdef GL_ES
-    //precision mediump float;
-    precision highp float;
-    #endif
-
-    uniform vec3 uDOF;  //x:focus distance, y:focus radius, z:max radius
-    uniform vec3 uFade; //x:start distance, y:half distance, z:near fade start
-
-    const vec3 fadeCol = vec3(0.08, 0.03, 0.06);
-
-    varying vec3 pposition;
-    varying float psize;
-    varying float palpha;
-    varying float pdist;
-
-    //varying mat3 rotMat;
-    varying vec3 normX;
-    varying vec3 normY;
-    varying vec3 normZ;
-    varying vec3 normal;
-
-    varying float diffuse;
-    varying float specular;
-    varying float rstop;
-    varying float distancefade;
-
-    float ellipse(vec2 p, vec2 o, vec2 r) {
-        vec2 lp = (p - o) / r;
-        return length(lp) - 1.0;
-    }
-
-    void main(void) {
-        vec3 p = vec3(gl_PointCoord - vec2(0.5, 0.5), 0.0) * 2.0;
-        vec3 d = vec3(0.0, 0.0, -1.0);
-        float nd = normZ.z; //dot(-normZ, d);
-        if(abs(nd) < 0.0001) discard;
-        
-        float np = dot(normZ, p);
-        vec3 tp = p + d * np / nd;
-        vec2 coord = vec2(dot(normX, tp), dot(normY, tp));
-        
-        //angle = 15 degree
-        const float flwrsn = 0.258819045102521;
-        const float flwrcs = 0.965925826289068;
-        mat2 flwrm = mat2(flwrcs, -flwrsn, flwrsn, flwrcs);
-        vec2 flwrp = vec2(abs(coord.x), coord.y) * flwrm;
-        
-        float r;
-        if(flwrp.x < 0.0) {
-            r = ellipse(flwrp, vec2(0.065, 0.024) * 0.5, vec2(0.36, 0.96) * 0.5);
-        }
-        else {
-            r = ellipse(flwrp, vec2(0.065, 0.024) * 0.5, vec2(0.58, 0.96) * 0.5);
-        }
-        
-        if(r > rstop) discard;
-        
-        vec3 col = mix(vec3(1.0, 0.8, 0.75), vec3(1.0, 0.9, 0.87), r);
-        float grady = mix(0.0, 1.0, pow(coord.y * 0.5 + 0.5, 0.35));
-        col *= vec3(1.0, grady, grady);
-        col *= mix(0.8, 1.0, pow(abs(coord.x), 0.3));
-        col = col * diffuse + specular;
-        
-        col = mix(fadeCol, col, distancefade);
-        
-        float alpha = (rstop > 0.001)? (0.5 - r / (rstop * 2.0)) : 1.0;
-        alpha = smoothstep(0.0, 1.0, alpha) * palpha;
-        
-        gl_FragColor = vec4(col * 0.5, alpha);
-    }
-</script>
-<script id="fx_common_vsh" type="x-shader/x_vertex">
-    uniform vec3 uResolution;
-    attribute vec2 aPosition;
-
-    varying vec2 texCoord;
-    varying vec2 screenCoord;
-
-    void main(void) {
-        gl_Position = vec4(aPosition, 0.0, 1.0);
-        texCoord = aPosition.xy * 0.5 + vec2(0.5, 0.5);
-        screenCoord = aPosition.xy * vec2(uResolution.z, 1.0);
-    }
-</script>
-<script id="bg_fsh" type="x-shader/x_fragment">
-    #ifdef GL_ES
-    //precision mediump float;
-    precision highp float;
-    #endif
-
-    uniform vec2 uTimes;
-
-    varying vec2 texCoord;
-    varying vec2 screenCoord;
-
-    void main(void) {
-        vec3 col;
-        float c;
-        vec2 tmpv = texCoord * vec2(0.8, 1.0) - vec2(0.95, 1.0);
-        c = exp(-pow(length(tmpv) * 1.8, 2.0));
-        col = mix(vec3(0.02, 0.0, 0.03), vec3(0.96, 0.98, 1.0) * 1.5, c);
-        gl_FragColor = vec4(col * 0.5, 1.0);
-    }
-</script>
-<script id="fx_brightbuf_fsh" type="x-shader/x_fragment">
-    #ifdef GL_ES
-    //precision mediump float;
-    precision highp float;
-    #endif
-    uniform sampler2D uSrc;
-    uniform vec2 uDelta;
-
-    varying vec2 texCoord;
-    varying vec2 screenCoord;
-
-    void main(void) {
-        vec4 col = texture2D(uSrc, texCoord);
-        gl_FragColor = vec4(col.rgb * 2.0 - vec3(0.5), 1.0);
-    }
-</script>
-<script id="fx_dirblur_r4_fsh" type="x-shader/x_fragment">
-    #ifdef GL_ES
-    //precision mediump float;
-    precision highp float;
-    #endif
-    uniform sampler2D uSrc;
-    uniform vec2 uDelta;
-    uniform vec4 uBlurDir; //dir(x, y), stride(z, w)
-
-    varying vec2 texCoord;
-    varying vec2 screenCoord;
-
-    void main(void) {
-        vec4 col = texture2D(uSrc, texCoord);
-        col = col + texture2D(uSrc, texCoord + uBlurDir.xy * uDelta);
-        col = col + texture2D(uSrc, texCoord - uBlurDir.xy * uDelta);
-        col = col + texture2D(uSrc, texCoord + (uBlurDir.xy + uBlurDir.zw) * uDelta);
-        col = col + texture2D(uSrc, texCoord - (uBlurDir.xy + uBlurDir.zw) * uDelta);
-        gl_FragColor = col / 5.0;
-    }
-</script>
-<script id="fx_common_fsh" type="x-shader/x_fragment">
-    #ifdef GL_ES
-    //precision mediump float;
-    precision highp float;
-    #endif
-    uniform sampler2D uSrc;
-    uniform vec2 uDelta;
-
-    varying vec2 texCoord;
-    varying vec2 screenCoord;
-
-    void main(void) {
-        gl_FragColor = texture2D(uSrc, texCoord);
-    }
-</script>
-<script id="pp_final_vsh" type="x-shader/x_vertex">
-    uniform vec3 uResolution;
-    attribute vec2 aPosition;
-    varying vec2 texCoord;
-    varying vec2 screenCoord;
-    void main(void) {
-        gl_Position = vec4(aPosition, 0.0, 1.0);
-        texCoord = aPosition.xy * 0.5 + vec2(0.5, 0.5);
-        screenCoord = aPosition.xy * vec2(uResolution.z, 1.0);
-    }
-</script>
-<script id="pp_final_fsh" type="x-shader/x_fragment">
-    #ifdef GL_ES
-    //precision mediump float;
-    precision highp float;
-    #endif
-    uniform sampler2D uSrc;
-    uniform sampler2D uBloom;
-    uniform vec2 uDelta;
-    varying vec2 texCoord;
-    varying vec2 screenCoord;
-    void main(void) {
-        vec4 srccol = texture2D(uSrc, texCoord) * 2.0;
-        vec4 bloomcol = texture2D(uBloom, texCoord);
-        vec4 col;
-        col = srccol + bloomcol * (vec4(1.0) + srccol);
-        col *= smoothstep(1.0, 0.0, pow(length((texCoord - vec2(0.5)) * 2.0), 1.2) * 0.5);
-        col = pow(col, vec4(0.45454545454545)); //(1.0 / 2.2)
-        
-        gl_FragColor = vec4(col.rgb, 1.0);
-        gl_FragColor.a = 1.0;
-    }
-</script>
-<script src="saku.js"></script>
+</body>
+</html>
