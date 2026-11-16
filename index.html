@@ -1,792 +1,268 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="gun/assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="gun/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="gun/assets/libs/css/style.css">
-    <link rel="stylesheet" href="gun/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="gun/assets/vendor/charts/morris-bundle/morris.css">
-    <title>GUNNERCS</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GUNNERCS | Full Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Kodchasan:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+:root{--bg:#04050d;--card:rgba(18,20,48,.55);--line:rgba(150,160,255,.18);--text:#e8eaff;--muted:#9aa0cf;--a1:#7c5cff;--a2:#2fd4ff;--a3:#ff6bd6;--gold:#ffcf6b}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Kodchasan',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+#stars{position:fixed;inset:0;z-index:0}
+.nebula{position:fixed;inset:0;z-index:0;pointer-events:none;background:
+ radial-gradient(60vw 50vh at 85% 10%,rgba(124,92,255,.28),transparent 70%),
+ radial-gradient(50vw 50vh at 10% 85%,rgba(47,212,255,.18),transparent 70%),
+ radial-gradient(40vw 40vh at 60% 60%,rgba(255,107,214,.12),transparent 70%)}
+a{color:inherit;text-decoration:none}
+.wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(4,5,13,.65);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .in{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Orbitron',sans-serif;font-weight:900;letter-spacing:.2em;background:linear-gradient(90deg,var(--a2),var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent}
+nav ul{display:flex;gap:6px;list-style:none}
+nav ul a{display:block;padding:7px 14px;border-radius:999px;font-size:.9rem;color:var(--muted);transition:.25s}
+nav ul a:hover,nav ul a.act{color:#fff;background:rgba(124,92,255,.3)}
+.burger{display:none;background:none;border:0;color:#fff;font-size:1.6rem;cursor:pointer}
+@media(max-width:820px){
+ .burger{display:block}
+ nav ul{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(4,5,13,.95);padding:10px 20px 18px;display:none}
+ nav ul.open{display:flex}
+}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;z-index:1;padding:100px 20px 60px}
+.planet{position:absolute;border-radius:50%;pointer-events:none}
+.p1{width:300px;height:300px;right:6%;top:22%;background:radial-gradient(circle at 30% 30%,#ffd9a0,#e0783c 45%,#6b2a1a 80%);box-shadow:inset -44px -34px 80px rgba(0,0,0,.7),0 0 90px rgba(255,150,80,.25);opacity:.85;animation:float 9s ease-in-out infinite}
+.p1::after{content:"";position:absolute;left:-40%;right:-40%;top:42%;height:16%;border:2px solid rgba(255,220,170,.45);border-radius:50%;transform:rotate(-18deg)}
+.p2{width:130px;height:130px;left:8%;bottom:16%;background:radial-gradient(circle at 35% 30%,#9ee8ff,#2a6fd6 50%,#0a1a4a 85%);box-shadow:inset -22px -16px 44px rgba(0,0,0,.7),0 0 56px rgba(47,212,255,.3);opacity:.85;animation:float 7s ease-in-out infinite reverse}
+@keyframes float{50%{transform:translateY(-18px)}}
+.avatar{position:relative;width:200px;height:200px;margin:0 auto 26px}
+.avatar img{position:absolute;inset:16px;width:calc(100% - 32px);height:calc(100% - 32px);border-radius:50%;object-fit:cover;background:linear-gradient(135deg,var(--a1),var(--a2));border:3px solid rgba(255,255,255,.15)}
+.orbit{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(124,200,255,.45);animation:spin 18s linear infinite}
+.orbit.o2{inset:-16px;border-color:rgba(255,107,214,.35);animation-duration:28s;animation-direction:reverse}
+.orbit::after{content:"";position:absolute;top:-6px;left:50%;width:12px;height:12px;border-radius:50%;background:var(--a2);box-shadow:0 0 14px var(--a2)}
+.o2::after{background:var(--a3);box-shadow:0 0 14px var(--a3)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hello{font-family:'Orbitron',sans-serif;color:var(--a2);letter-spacing:.35em;font-size:.8rem;margin-bottom:10px}
+h1{font-size:clamp(2.1rem,6vw,4rem);font-weight:500;line-height:1.15;background:linear-gradient(90deg,#fff,#b9b0ff 50%,var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{font-family:'Orbitron',sans-serif;letter-spacing:.3em;color:var(--gold);margin-top:14px;font-size:clamp(.85rem,2vw,1.1rem)}
+.cta{margin-top:30px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{padding:12px 28px;border-radius:999px;font-size:.95rem;border:1px solid var(--line);background:var(--card);backdrop-filter:blur(8px);transition:.25s;cursor:pointer;color:var(--text);font-family:inherit}
+.btn.pri{background:linear-gradient(135deg,var(--a1),var(--a3));border:0;box-shadow:0 0 24px rgba(124,92,255,.5)}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.15)}
+
+/* sections */
+section{position:relative;z-index:1;padding:70px 0 10px}
+.title{font-family:'Orbitron',sans-serif;font-size:clamp(1.2rem,3vw,1.7rem);letter-spacing:.25em;text-transform:uppercase;text-align:center;margin-bottom:36px;color:#fff}
+.title span{background:linear-gradient(90deg,var(--a2),var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.title::after{content:"";display:block;width:70px;height:3px;margin:12px auto 0;border-radius:3px;background:linear-gradient(90deg,var(--a2),var(--a3))}
+.grid{display:grid;gap:22px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;backdrop-filter:blur(14px);box-shadow:0 10px 40px rgba(0,0,0,.35);position:relative;overflow:hidden;transition:.3s}
+.card:hover{transform:translateY(-4px);border-color:rgba(124,200,255,.4)}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--a2),var(--a3),transparent);opacity:.7}
+.card h3{font-family:'Orbitron',sans-serif;font-size:.9rem;letter-spacing:.22em;text-transform:uppercase;color:var(--a2);margin-bottom:16px}
+.card p{color:#cdd1f5}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed rgba(150,160,255,.12);font-size:.95rem}
+.kv:last-of-type{border:0}.kv span:first-child{color:var(--muted)}
+.social{display:flex;gap:12px;margin-top:18px}
+.social a{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-size:1.2rem;background:linear-gradient(135deg,var(--a1),var(--a3));box-shadow:0 0 18px rgba(124,92,255,.45);transition:.25s}
+.social a:hover{transform:translateY(-3px) scale(1.08)}
+
+/* timeline */
+.tl{position:relative;max-width:820px;margin:0 auto;padding-left:30px}
+.tl::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--a2),var(--a3),transparent)}
+.it{position:relative;margin-bottom:22px}
+.it::before{content:"";position:absolute;left:-30px;top:26px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--a2);box-shadow:0 0 12px var(--a2)}
+.it.now::before{background:var(--a3);border-color:var(--a3);box-shadow:0 0 16px var(--a3);animation:pulse 1.8s infinite}
+@keyframes pulse{50%{box-shadow:0 0 4px var(--a3)}}
+.it .y{font-family:'Orbitron',sans-serif;color:var(--gold);font-size:.85rem;letter-spacing:.08em}
+.it .t{font-size:1.15rem;font-weight:500;margin-top:2px}
+.it .c{color:var(--muted);margin-bottom:10px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:.76rem;padding:3px 11px;border-radius:99px;background:rgba(124,92,255,.18);border:1px solid rgba(124,92,255,.4);color:#cfc6ff}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.skill .row{display:flex;justify-content:space-between;margin-bottom:8px}
+.skill .row span:last-child{color:var(--muted)}
+.bar{height:8px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--a1),var(--a2));box-shadow:0 0 12px rgba(47,212,255,.6);transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:22px}
+.proj{padding:0;cursor:pointer}
+.proj .img{height:190px;overflow:hidden;background:#0b0d24}
+.proj img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s}
+.proj:hover img{transform:scale(1.07)}
+.proj .body{padding:18px 22px 22px}
+.proj h4{font-weight:500;font-size:1.1rem}
+.proj .kind{display:inline-block;margin-top:6px;font-size:.75rem;padding:2px 12px;border-radius:99px;background:rgba(47,212,255,.14);border:1px solid rgba(47,212,255,.4);color:var(--a2)}
+.proj .more{display:block;margin-top:12px;font-size:.85rem;color:var(--gold)}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:50;background:rgba(2,3,10,.85);backdrop-filter:blur(8px);display:none;overflow-y:auto;padding:40px 16px}
+.modal.open{display:block}
+.mbox{max-width:760px;margin:0 auto;background:#0d1030;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 0 60px rgba(124,92,255,.35)}
+.mhead{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line)}
+.mhead h5{font-size:1.1rem;font-weight:500}
+.mx{background:none;border:0;color:#fff;font-size:1.8rem;cursor:pointer;line-height:1}
+.mbody{padding:20px 24px}
+.mbody img{width:100%;border-radius:10px;margin-bottom:12px;border:1px solid var(--line)}
+.mbody h6{text-align:center;font-family:'Orbitron',sans-serif;letter-spacing:.25em;color:var(--a3);margin:18px 0 14px;font-size:.85rem}
+
+footer{position:relative;z-index:1;text-align:center;color:var(--muted);padding:60px 20px 40px;font-size:.9rem}
+.reveal{opacity:0;transform:translateY(28px);transition:.8s}
+.reveal.show{opacity:1;transform:none}
+@media(max-width:720px){.p1{opacity:.35;right:-60px}.p2{opacity:.5}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
 </head>
-<style>
-    body {
-        overflow: hidden;
-    }
-    /* Preloader */
-    
-    #preloader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #fff;
-        /* change if the mask should have another color then white */
-        z-index: 99;
-        /* makes sure it stays on top */
-    }
-    
-    #status {
-        width: 200px;
-        height: 200px;
-        position: absolute;
-        left: 50%;
-        /* centers the loading animation horizontally one the screen */
-        top: 50%;
-        /* centers the loading animation vertically one the screen */
-        background-image: url(https://raw.githubusercontent.com/niklausgerber/PreLoadMe/master/img/status.gif);
-        /* path to your loading animation */
-        background-repeat: no-repeat;
-        background-position: center;
-        margin: -100px 0 0 -100px;
-        /* is width and height divided by two */
-    }
-</style>
-<script>
-    $(window).on('load', function() { // makes sure the whole site is loaded 
-        $('#status').fadeOut(); // will first fade out the loading animation 
-        $('#preloader').delay(50).fadeOut('slow'); // will fade out the white DIV that covers the website. 
-        $('body').delay(50).css({
-            'overflow': 'visible'
-        });
-    })
-
-    $(function() {
-        var d = new Date();
-        var year = d.getFullYear();
-        var age = year-1997;
-        $('#age_show').html(age);
-    });
-    
-    
-</script>
-
 <body>
-    <div id="preloader">
-        <div id="status">&nbsp;</div>
+<canvas id="stars"></canvas><div class="nebula"></div>
+
+<nav><div class="in">
+  <a href="#home" class="logo">GN</a>
+  <button class="burger" onclick="document.getElementById('menu').classList.toggle('open')" aria-label="menu"><i class="fa fa-bars"></i></button>
+  <ul id="menu">
+    <li><a href="#home">Home</a></li><li><a href="#profile">Profile</a></li><li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li><li><a href="#skill">Skill</a></li><li><a href="#project">My Project</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero" id="home">
+  <div class="planet p1"></div><div class="planet p2"></div>
+  <div style="position:relative">
+    <div class="avatar"><div class="orbit"></div><div class="orbit o2"></div><img src="icn/gn.jpg" alt="Gun"></div>
+    <div class="hello">// HELLO, UNIVERSE</div>
+    <h1>Kittipat Moonkham (Gun)</h1>
+    <div class="role">WEB DEVELOPER</div>
+    <div class="cta"><a href="#project" class="btn pri">View Projects</a><a href="#profile" class="btn">Contact Me</a></div>
+  </div>
+</header>
+
+<div class="wrap">
+<section id="profile">
+  <h2 class="title">Pro<span>file</span></h2>
+  <div class="grid g2">
+    <div class="card reveal">
+      <h3>About</h3>
+      <p>I graduated from Chiang Mai Rajabhat University, majoring in Computer Science. I interned at Ocare Health Hub Co., Ltd. as a programmer using ASP.NET MVC and learned about teamwork. In 2019–2020 I worked at Thailand Web Marketing as a PHP programmer. I am currently a Programmer Analyst at Meiko Trans (Thailand) Co., Ltd. My goal is a role that allows continuous professional growth.</p>
     </div>
-    <style>
-        a {
-            color: aliceblue;
-        }
-    </style>
-    <div class="bg1" id="Home" style="background: url('icn/gn.jpg');background-size: cover;box-shadow: 0px 2px 10px -4px #000;">
-        <nav class="navbar navbar-expand-lg">
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true" style="color: aliceblue;font-size: 2rem;"></i></span>
-      </button>
-            <div class="mx-auto">
-                <a href="#" class="navbar-brand pd0">GN</a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link ahrf" style="margin-right: 10px;" href="#Home">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ahrf" style="margin-right: 10px;" href="#profile">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ahrf" style="margin-right: 10px;" href="#Experience">Experience</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ahrf" style="margin-right: 10px;" href="#Education">Education</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ahrf" style="margin-right: 10px;" href="#Skill">Skill</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ahrf" style="margin-right: 10px;" href="#Project">My Project</a>
-                    </li>
-                </ul>
-
-
-            </div>
-        </nav>
-        <div class="text3" style="text-align: center;padding-top: 20%;">
-            <div class="text1">
-                <h1 class="text2" style="color:aliceblue;text-shadow: 0px 2px 10px;">Kittipat Moonkham (Gun)</h1>
-                <h3 class="text3" style="color:white;text-shadow: 0px 2px 10px crimson;">WEB DEVELOPER</h3>
-            </div>
-            <!-- <a href="#profile" class="btn btn-dark btn1" >Profile</a> -->
-
-        </div>
+    <div class="card reveal">
+      <h3>Basic Information</h3>
+      <div class="kv"><span>Birthday</span><span>22 March 1997 (<b id="age"></b>)</span></div>
+      <div class="kv"><span>Email</span><span>gggnnttss@gmail.com</span></div>
+      <div class="social">
+        <a href="tel:+66930513020" aria-label="phone"><i class="fa fa-phone"></i></a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gggnnttss@gmail.com" aria-label="email"><i class="fa fa-envelope"></i></a>
+        <a href="https://www.instagram.com/g997s/" aria-label="instagram"><i class="fa fa-instagram"></i></a>
+      </div>
     </div>
-    <script>
-        window.scroll({
-            top: 2500,
-            left: 0,
-            behavior: 'smooth'
-        });
+  </div>
+</section>
 
-        // Scroll certain amounts from current position 
-        window.scrollBy({
-            top: 100, // could be negative value
-            left: 0,
-            behavior: 'smooth'
-        });
+<section id="experience">
+  <h2 class="title">Expe<span>rience</span></h2>
+  <div class="tl">
+    <div class="it card reveal"><div class="y">2019 – 2020</div><div class="t">PHP Web Developer</div><div class="c">Thailand Web Marketing Co., Ltd.</div>
+      <div class="tags"><span>PHP</span><span>MySQL</span><span>CSS</span><span>JavaScript</span><span>HTML</span></div></div>
+    <div class="it card reveal"><div class="y">2020 – 2022</div><div class="t">Web Developer</div><div class="c">Advanced Research Group Co., Ltd.</div>
+      <div class="tags"><span>PHP</span><span>MSSQL</span><span>Oracle</span><span>API</span><span>CSS</span><span>JavaScript</span><span>HTML</span></div></div>
+    <div class="it card reveal now"><div class="y">2022 – NOW</div><div class="t">Programmer Analyst</div><div class="c">Meiko Trans (Thailand) Co., Ltd.</div>
+      <div class="tags"><span>PHP (CodeIgniter)</span><span>MSSQL</span><span>MySQL</span><span>Stored Procedure</span><span>CSS</span><span>JavaScript</span><span>HTML</span></div></div>
+  </div>
+</section>
 
-        // Scroll to a certain element
-        document.querySelector('.hello').scrollIntoView({
-            behavior: 'smooth'
-        });
-    </script>
+<section id="education">
+  <h2 class="title">Educ<span>ation</span></h2>
+  <div class="tl">
+    <div class="it card reveal"><div class="y">2015 – 2019</div><div class="t">Computer Science</div><div class="c">Chiang Mai Rajabhat University</div></div>
+    <div class="it card reveal"><div class="y">2023</div><div class="t">General English</div><div class="c">Newton College, Australia</div></div>
+  </div>
+</section>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <div style="padding: 20px;margin-left: 7%;margin-right: 7%;" id="profile">
-        <section>
-            <!-- <h3 style="text-align: center;font-size: 3rem;background-color: snow;padding: 10px;text-shadow: 0px 2px 5px !important;box-shadow: 0px 2px 10px -1px;border-radius: 5px;">PROFILE</h3> -->
-            <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 npd">
-                    <div class="card" style="height: 90%;">
-                        <h2 class="card-header" style="color: #ea6228;">About</h2>
-                        <div class="card-body">
-                            <h4 text-align: center;>I graduated from Chiang Mai Rajabhat University, majoring in Computer Science.I was an intern at Ocare Health Hub Co. Ltd 
-                                as a Programmer using ASP.Net MVC and I learned about teamwork. In 2019-2020 I'm worked at Thailandwebmarketing
-                                as a PHP Programmer.Work goal I would like a jobs which allows for personal professional growth.currently working at meiko trans (thailand) Co., Ltd. as a Programmer Analyst.</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 npd">
-                    <div class="card" style="height: 90%;">
-                        <h2 class="card-header" style="color: #ea6228;">Basic Information</h2>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
-                                    <h4>Birthday : </h4>
-                                </div>
-                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-                                    <h4>22 March 1997 (<span id="age_show"></span>)</h4>
-                                </div>
-                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
-                                    <h4>Email : </h4>
-                                </div>
-                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
-                                    <h4>gggnnttss@gmail.com</h4>
-                                </div>
-                                
+<section id="skill">
+  <h2 class="title">Sk<span>ill</span></h2>
+  <div class="skills" id="skills"></div>
+</section>
 
-                            </div>
+<section id="project">
+  <h2 class="title">My <span>Project</span></h2>
+  <div class="projects" id="projects"></div>
+</section>
+</div>
 
-                        </div>
-                        <span style="text-align: center;margin-bottom: 20px;">
-                            <a href="tel:+66930513020"><i class="fa fa-phone" style="font-size: 1.5rem;padding: 18px;background-color: #f45b69;border-radius: 50%;margin-right: 10px;color: aliceblue;"></i></a>
+<footer>© <span id="yr"></span> Kittipat Moonkham · Built among the stars ✦</footer>
 
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gggnnttss@gmail.com"><i class="fa fa-envelope" style="font-size: 1.5rem;padding: 18px;background-color: #f45b69;border-radius: 50%;margin-right: 10px;color: aliceblue;"></i></a>
-                <a href="https://www.instagram.com/g997s/"><i class="fa fa-instagram" style="font-size: 1.5rem;padding: 18px;background-color: #f45b69;border-radius: 50%;color: aliceblue;"></i></a>
-              </span>
-                    </div>
-                </div>
-        </section>
-        <section class="intro" id="Experience">
-            <div class="container">
-                <h1 style="color: aliceblue;margin-bottom: 0px;">Experience </h1>
-            </div>
-        </section>
+<div class="modal" id="modal" onclick="if(event.target===this)closeM()">
+  <div class="mbox">
+    <div class="mhead"><h5 id="mt"></h5><button class="mx" onclick="closeM()" aria-label="close">&times;</button></div>
+    <div class="mbody" id="mb"></div>
+  </div>
+</div>
 
-        <section class="timeline">
-            <ul>
-                <li>
-                    <div>
-                        <time>2019-2020</time> Thailand Web Marketing Co., Ltd. <br> PHP Web Developer
-                        <br> - PHP
-                        <br> - MYSQL
-                        <br> - CSS
-                        <br> - Javascript
-                        <br> - HTML
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <time>2020-2022</time> Advanced Research Group Co., Ltd. <br> Web Developer
-                        <br> - PHP
-                        <br> - MSSQL
-                        <br> - ORACLE
-                        <br> - API
-                        <br> - CSS
-                        <br> - Javascript
-                        <br> - HTML
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <time>2022-NOW</time> meiko trans (thailand) Co., Ltd. <br> Programmer Analyst
-                        <br> - PHP (CodeIgniter)
-                        <br> - MSSQL,MYSQL
-                        <br> - STORED PROCEDURE
-                        <br> - CSS
-                        <br> - Javascript
-                        <br> - HTML
-                    </div>
-                </li>
-            </ul>
-        </section>
-
-        <section class="intro" style="background-color: #4682b4;" id="Education">
-            <div class="container">
-                <h1 style="color: aliceblue;margin-bottom: 0px;">Education </h1>
-            </div>
-        </section>
-
-        <section class="timeline">
-            <ul>
-                <li>
-                    <div>
-                        <time>2015-2019</time>CHIANG MAI RAJABHAT UNIVERSITY <br> COMPUTER SCIENCE
-                    </div>
-                    
-                </li>
-                <li>
-                    <div>
-                        <time>2023-2023</time>NEWTON COLLAGE AUSTRALIA<br> GENERAL ENGLISH
-                    </div>
-                </li>
-            </ul>
-        </section>
-        <h3 id="Skill" style="text-align: center;font-size: 3rem;background-color: orangered;color: white;padding: 10px;text-shadow: 0px 2px 5px !important;box-shadow: 0px 2px 10px -1px;border-radius: 5px;">Skill</h3>
-        <div class="row">
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 npd">
-                <div class="card">
-                    <h5 class="card-header" style="color: #ea6228;">HTML</h5>
-                    <div class="card-body">
-                        <div id="HTML"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 npd">
-                <div class="card">
-                    <h5 class="card-header" style="color: #2aa3d9;">Java Script</h5>
-                    <div class="card-body">
-                        <div id="boot"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 npd">
-                <div class="card">
-                    <h5 class="card-header" style="color: #2aa3d9;">CSS</h5>
-                    <div class="card-body">
-                        <div id="CSS"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 npd">
-                <div class="card">
-                    <h5 class="card-header" style="color: #697ab1;">PHP</h5>
-                    <div class="card-body">
-                        <div id="PHP"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 npd">
-                <div class="card">
-                    <h5 class="card-header" style="color: #4c8af0;">MySQL</h5>
-                    <div class="card-body">
-                        <div id="MY"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 npd">
-                <div class="card">
-                    <h5 class="card-header" style="color: #4c8af0;">MSSQL</h5>
-                    <div class="card-body">
-                        <div id="MSS"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 npd">
-                <div class="card">
-                    <h5 class="card-header" style="color: #4c8af0;">IONIC</h5>
-                    <div class="card-body">
-                        <div id="IONIC"></div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-        <h3 id="Project" style="text-align: center;font-size: 3rem;background-color: orangered;color: white;padding: 10px;text-shadow: 0px 2px 5px !important;box-shadow: 0px 2px 10px -1px;border-radius: 5px;">My Project</h3>
-        <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 npd">
-                <div class="card">
-                    <h4 class="card-header" style="color: #ea6228;">Headache (Ionic)</h2>
-                        <div class="card-body">
-                            <div class="">
-                                <a href="#" class="btn btn-light" data-toggle="modal" data-target="#ionic">
-                                    <img src="project/ionic0.png" style="width: 100%;">
-                                </a>
-                                <div class="modal fade" id="ionic" tabindex="-1" role="dialog" aria-labelledby="ionic1" style="display: none;" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="ionic1">Graduation Project</h5>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img src="project/ionic1.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/ionic2.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/ionic3.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/ionic4.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/ionic5.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/ionic6.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/ionic7.png" style="width: 100%;">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 npd">
-                <div class="card">
-                    <h4 class="card-header" style="color: #ea6228;">Diabetic Care (Web Applications)</h2>
-                        <div class="card-body">
-                            <div class="">
-                                <a href="#" class="btn btn-light" data-toggle="modal" data-target="#nut">
-                                    <img src="project/nut0.png" style="width: 100%;">
-                                </a>
-                                <div class="modal fade" id="nut" tabindex="-1" role="dialog" aria-labelledby="nutt" style="display: none;" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="nutt">Developing Diabetic Care Applications of type 2 on mobile</h5>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img src="project/nut1.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/nut2.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/nut3.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/nut4.png" style="width: 100%;">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 npd">
-                <div class="card">
-                    <h4 class="card-header" style="color: #ea6228;">ACE By Thariun7 (PHP WEB)</h2>
-                        <div class="card-body">
-                            <div class="">
-                                <a href="#" class="btn btn-brand" data-toggle="modal" data-target="#th">
-                                    <img src="project/th4.png" style="width: 100%;">
-                                </a>
-                                <div class="modal fade" id="th" tabindex="-1" role="dialog" aria-labelledby="thh" style="display: none;" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="thh">ACE By Thariun7 </h5>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img src="project/th1.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/th3.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/th2.png" style="width: 100%;margin-bottom: 5px;">
-                                                <hr>
-                                                <h5 style="text-align: center;">Admin</h5>
-                                                <img src="project/th6.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/th4.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/th5.png" style="width: 100%;">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 npd">
-                <div class="card">
-                    <h4 class="card-header" style="color: #ea6228;">Vrefini (PHP WEB)</h2>
-                        <div class="card-body">
-                            <div class="">
-                                <a href="#" class="btn btn-info" data-toggle="modal" data-target="#Vrefini">
-                                    <img src="project/vf3.png" style="width: 100%;">
-                                </a>
-                                <div class="modal fade" id="Vrefini" tabindex="-1" role="dialog" aria-labelledby="Network" style="display: none;" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="Network">Vrefini Network</h5>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img src="project/vf1.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/vf2.png" style="width: 100%;margin-bottom: 5px;">
-                                                <hr>
-                                                <h5 style="text-align: center;">Admin</h5>
-                                                <img src="project/vf3.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/vf4.png" style="width: 100%;margin-bottom: 5px;">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 npd">
-                <div class="card">
-                    <h4 class="card-header" style="color: #ea6228;">MyMochy (PHP WEB)</h2>
-                        <div class="card-body">
-                            <div class="">
-                                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#MyMochy">
-                                    <img src="project/my2.png" style="width: 100%;">
-                                </a>
-                                <div class="modal fade" id="MyMochy" tabindex="-1" role="dialog" aria-labelledby="mochy" style="display: none;" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="mochy">MyMochy</h5>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img src="project/my4.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/my2.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/my3.png" style="width: 100%;margin-bottom: 5px;">
-                                                <hr>
-                                                <h5 style="text-align: center;">Admin</h5>
-                                                <img src="project/my5.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/my1.png" style="width: 100%;margin-bottom: 5px;">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 npd">
-                <div class="card">
-                    <h4 class="card-header" style="color: #ea6228;">MangMooM (E-commerce)</h2>
-                        <div class="card-body">
-                            <div class="">
-                                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#Mangmoom">
-                                    <img src="project/mm1.png" style="width: 100%;">
-                                </a>
-                                <div class="modal fade" id="Mangmoom" tabindex="-1" role="dialog" aria-labelledby="mochy" style="display: none;" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="mochy">Mangmoom</h5>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img src="project/mm1.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/mm2.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/mm3.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/mm4.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/mm5.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/mm7.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/mm8.png" style="width: 100%;margin-bottom: 5px;">
-                                                <img src="project/mm9.png" style="width: 100%;margin-bottom: 5px;">
-                                                <hr>
-                                                <h5 style="text-align: center;">Admin</h5>
-                                                <img src="project/mm6.png" style="width: 100%;margin-bottom: 5px;">
-                                                <!-- <img src="project/my1.png" style="width: 100%;margin-bottom: 5px;"> -->
-                                            </div>
-                                            <div class="modal-footer">
-                                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
-
-            <style>
-                .modal-title {
-                    margin: auto;
-                }
-            </style>
-        </div>
-        </div>
-        <script src="gun/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-        <script src="gun/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-        <script src="gun/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-        <script src="gun/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-        <script src="gun/assets/vendor/charts/morris-bundle/morris.js"></script>
-        <script src="gun/assets/vendor/charts/morris-bundle/Morrisjs.js"></script>
-        <script src="gun/assets/libs/js/main-js.js"></script>
-</body>
 <script>
-    (function() {
+var P=[
+ {n:'Headache',k:'Ionic',cover:'ionic0',t:'Graduation Project',imgs:['ionic1','ionic2','ionic3','ionic4','ionic5','ionic6','ionic7']},
+ {n:'Diabetic Care',k:'Web Applications',cover:'nut0',t:'Developing Diabetic Care Applications of type 2 on mobile',imgs:['nut1','nut2','nut3','nut4']},
+ {n:'ACE By Thariun7',k:'PHP WEB',cover:'th4',t:'ACE By Thariun7',imgs:['th1','th3','th2'],admin:['th6','th4','th5']},
+ {n:'Vrefini',k:'PHP WEB',cover:'vf3',t:'Vrefini Network',imgs:['vf1','vf2'],admin:['vf3','vf4']},
+ {n:'MyMochy',k:'PHP WEB',cover:'my2',t:'MyMochy',imgs:['my4','my2','my3'],admin:['my5','my1']},
+ {n:'MangMooM',k:'E-commerce',cover:'mm1',t:'Mangmoom',imgs:['mm1','mm2','mm3','mm4','mm5','mm7','mm8','mm9'],admin:['mm6']}
+];
+var S=[['HTML',90],['JavaScript',90],['CSS',80],['MSSQL',80],['PHP',70],['Ionic',60],['MySQL',50]];
 
-        'use strict';
+function img(n){return '<img loading="lazy" src="project/'+n+'.png" alt="">'}
+var pl=document.getElementById('projects');
+P.forEach(function(p,i){
+  pl.insertAdjacentHTML('beforeend','<div class="card proj reveal" onclick="openM('+i+')"><div class="img">'+img(p.cover)+'</div><div class="body"><h4>'+p.n+'</h4><span class="kind">'+p.k+'</span><span class="more">View screenshots →</span></div></div>');
+});
+function openM(i){
+  var p=P[i],h=p.imgs.map(img).join('');
+  if(p.admin)h+='<h6>ADMIN</h6>'+p.admin.map(img).join('');
+  document.getElementById('mt').textContent=p.t;
+  document.getElementById('mb').innerHTML=h;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeM(){document.getElementById('modal').classList.remove('open');document.body.style.overflow=''}
+addEventListener('keydown',function(e){if(e.key==='Escape')closeM()});
 
-        // define variables
-        var items = document.querySelectorAll(".timeline li");
+var sk=document.getElementById('skills');
+S.forEach(function(s){sk.insertAdjacentHTML('beforeend','<div class="card skill reveal"><div class="row"><span>'+s[0]+'</span><span>'+s[1]+'%</span></div><div class="bar"><i data-w="'+s[1]+'"></i></div></div>')});
 
-        // check if an element is in viewport
-        // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
-        function isElementInViewport(el) {
-            var rect = el.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
-        }
+document.getElementById('age').textContent=new Date().getFullYear()-1997;
+document.getElementById('yr').textContent=new Date().getFullYear();
 
-        function callbackFunc() {
-            for (var i = 0; i < items.length; i++) {
-                if (isElementInViewport(items[i])) {
-                    items[i].classList.add("in-view");
-                }
-            }
-        }
+/* reveal + bars + active nav */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){
+  if(e.isIntersecting){e.target.classList.add('show');var b=e.target.querySelector('.bar i');if(b)b.style.width=b.dataset.w+'%';io.unobserve(e.target)}
+})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+var links=document.querySelectorAll('nav ul a');
+var so=new IntersectionObserver(function(es){es.forEach(function(e){
+  if(e.isIntersecting)links.forEach(function(a){a.classList.toggle('act',a.getAttribute('href')==='#'+e.target.id)})
+})},{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('header[id],section[id]').forEach(function(s){so.observe(s)});
+links.forEach(function(a){a.addEventListener('click',function(){document.getElementById('menu').classList.remove('open')})});
 
-        // listen for events
-        window.addEventListener("load", callbackFunc);
-        window.addEventListener("resize", callbackFunc);
-        window.addEventListener("scroll", callbackFunc);
-
-    })();
+/* starfield */
+var c=document.getElementById('stars'),x=c.getContext('2d'),W,H,stars=[],sh=[],mx=0,my=0;
+function rs(){W=c.width=innerWidth;H=c.height=innerHeight;stars=[];for(var i=0,n=Math.round(W*H/5500);i<n;i++)stars.push({x:Math.random()*W,y:Math.random()*H,z:Math.random()*.9+.1,r:Math.random()*1.3+.2,p:Math.random()*6.28,s:Math.random()*.02+.005})}
+addEventListener('resize',rs);rs();
+addEventListener('mousemove',function(e){mx=e.clientX/W-.5;my=e.clientY/H-.5});
+(function f(){
+  x.clearRect(0,0,W,H);
+  stars.forEach(function(s){s.p+=s.s;x.globalAlpha=(.4+.6*Math.abs(Math.sin(s.p)))*s.z;x.fillStyle=s.r>1.1?'#cfe6ff':'#fff';x.beginPath();x.arc(s.x-mx*20*s.z,s.y-my*20*s.z,s.r,0,6.283);x.fill();s.y+=.04*s.z;if(s.y>H)s.y=0});
+  if(Math.random()<.008)sh.push({x:Math.random()*W,y:Math.random()*H*.5,vx:7+Math.random()*5,vy:3+Math.random()*3,l:1});
+  sh=sh.filter(function(s){x.globalAlpha=s.l;var g=x.createLinearGradient(s.x,s.y,s.x-s.vx*8,s.y-s.vy*8);g.addColorStop(0,'#fff');g.addColorStop(1,'rgba(124,200,255,0)');x.strokeStyle=g;x.lineWidth=1.6;x.beginPath();x.moveTo(s.x,s.y);x.lineTo(s.x-s.vx*8,s.y-s.vy*8);x.stroke();s.x+=s.vx;s.y+=s.vy;s.l-=.015;return s.l>0});
+  x.globalAlpha=1;requestAnimationFrame(f);
+})();
 </script>
-<style>
-    html {
-        scroll-behavior: smooth;
-    }
-    
-    *,
-    *::before,
-    *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    body {
-        font: normal 16px/1.5 "Helvetica Neue", sans-serif;
-        background: whitesmoke;
-        color: #fff;
-        overflow-x: hidden;
-        padding-bottom: 50px;
-    }
-    /* INTRO SECTION
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-    
-    .intro {
-        background: #f45b69;
-        padding: 25px 0;
-        border-radius: 5px;
-        box-shadow: 0px 2px 10px -2px#000;
-    }
-    
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-        text-align: center;
-    }
-    
-    h1 {
-        font-size: 2.5rem;
-    }
-    /* TIMELINE
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-    
-    .timeline ul {
-        padding: 50px 0;
-    }
-    
-    .timeline ul li {
-        list-style-type: none;
-        position: relative;
-        width: 6px;
-        margin: 0 auto;
-        padding-top: 50px;
-        background: steelblue;
-    }
-    
-    .timeline ul li::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        transform: translateX(-50%);
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background: inherit;
-    }
-    
-    .timeline ul li div {
-        position: relative;
-        bottom: 0;
-        width: max-content;
-        padding: 15px;
-        background: #F45B69;
-    }
-    
-    .timeline ul li div::before {
-        content: '';
-        position: absolute;
-        bottom: 7px;
-        width: 0;
-        height: 0;
-        border-style: solid;
-    }
-    
-    .timeline ul li:nth-child(odd) div {
-        left: 45px;
-    }
-    
-    .timeline ul li:nth-child(odd) div::before {
-        left: -15px;
-        border-width: 8px 16px 8px 0;
-        border-color: transparent #F45B69 transparent transparent;
-    }
-    
-    .timeline ul li:nth-child(even) div {
-        left: -439px;
-    }
-    
-    .timeline ul li:nth-child(even) div::before {
-        right: -15px;
-        border-width: 8px 0 8px 16px;
-        border-color: transparent transparent transparent #F45B69;
-    }
-    
-    time {
-        display: block;
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 8px;
-    }
-    /* EFFECTS
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-    
-    .timeline ul li::after {
-        transition: background .5s ease-in-out;
-    }
-    
-    .timeline ul li.in-view::after {
-        background: #F45B69;
-    }
-    
-    .timeline ul li div {
-        visibility: hidden;
-        opacity: 0;
-        transition: all .5s ease-in-out;
-    }
-    
-    .timeline ul li:nth-child(odd) div {
-        transform: translate3d(200px, 0, 0);
-    }
-    
-    .timeline ul li:nth-child(even) div {
-        transform: translate3d(-200px, 0, 0);
-    }
-    
-    .timeline ul li.in-view div {
-        transform: none;
-        visibility: visible;
-        opacity: 1;
-    }
-    /* GENERAL MEDIA QUERIES
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-    
-    @media screen and (max-width: 900px) {
-        .timeline ul li div {
-            width: 320px;
-        }
-        .timeline ul li:nth-child(even) div {
-            left: -289px;
-            /*250+45-6*/
-        }
-    }
-    
-    @media screen and (max-width: 600px) {
-        .timeline ul li {
-            margin-left: 20px;
-        }
-        .timeline ul li div {
-            width: 250px;
-        }
-        .timeline ul li:nth-child(even) div {
-            left: 45px;
-        }
-        .timeline ul li:nth-child(even) div::before {
-            left: -15px;
-            border-width: 8px 16px 8px 0;
-            border-color: transparent #F45B69 transparent transparent;
-        }
-    }
-    
-    
-    .bg1 {
-        background: url('gun/img2.jpg');
-        background-size: cover;
-        min-height: 45vw;
-    }
-    
-    .btn1 {
-        padding: 5px 25px;
-        font-size: 2.5rem;
-    }
-    
-    @media only screen and (max-width: 600px) {
-        .btn1 {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1rem;
-            padding: 10px 15px;
-        }
-        .pd0 {
-            padding-left: 0px;
-        }
-        .ahrf {
-            background-color: whitesmoke;
-            color: brown;
-            padding: 13px;
-            border-radius: 7px;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        .text1 {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 1rem;
-            padding: 10px 15px;
-        }
-        .text2 {
-            font-size: 1.5rem;
-            display: none;
-        }
-        .text3 {
-            font-size: 1.5rem;
-            display: none;
-        }
-        .bg1 {
-            background: url('gun/img2.jpg');
-            background-size: cover;
-            min-height: 20vw;
-        }
-    }
-</style>
-
+</body>
 </html>
